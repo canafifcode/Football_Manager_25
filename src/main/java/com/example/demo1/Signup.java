@@ -7,12 +7,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
@@ -60,12 +63,18 @@ public class Signup implements Initializable {
         String team = teamChoiceBox.getValue();
 
         if (username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || league == null || team == null) {
-            System.out.println("Please fill out all fields.");
+            showAlert("Error", "Please fill out all fields.");
             return;
         }
 
         if (!password.equals(confirmPassword)) {
             System.out.println("Passwords do not match.");
+            showAlert("Error", "Passwords do not match.");
+            return;
+        }
+
+        if (isDuplicateUserOrTeam(username, team)) {
+            showAlert("Warning", "No more than one user is allowed with the same username or team.");
             return;
         }
 
@@ -84,6 +93,14 @@ public class Signup implements Initializable {
         }
     }
 
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
     private void saveUserToFile(User newUser) {
         try (java.io.FileWriter fw = new java.io.FileWriter("users.txt", true)) {
             fw.write(newUser.toString() + "\n");
@@ -91,6 +108,27 @@ public class Signup implements Initializable {
             e.printStackTrace();
         }
     }
+
+    private boolean isDuplicateUserOrTeam(String username, String team) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("users.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length >= 4) {
+                    String fileUsername = parts[0].trim();
+                    String fileTeam = parts[3].trim();
+                    if (fileUsername.equals(username) || fileTeam.equals(team)) {
+                        return true;
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Could not read users.txt for duplicate check.");
+        }
+        return false;
+    }
+
 
     @FXML
     public void goBack(ActionEvent event) throws IOException {

@@ -9,8 +9,10 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
-import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -43,9 +45,8 @@ public class TransferMarketController extends BuySell {
     @FXML
     private AnchorPane playerContainer;
 
+    @FXML
     public void searchPlayers() {
-        // Implement search functionality here
-        // This could involve filtering players based on name, team, or position
         String name = nameField.getText().trim().toLowerCase();
         String club = clubField.getText().trim().toLowerCase();
         String league = leagueComboBox.getValue();
@@ -100,23 +101,21 @@ public class TransferMarketController extends BuySell {
         playerContainer.setPrefHeight(yOffset + 5.0);
     }
 
+    @FXML
     public void goBack(ActionEvent actionEvent) throws IOException {
-        // Implement navigation back to the previous screen
-        // This could involve closing the current window or switching scenes
         Parent root = FXMLLoader.load(getClass().getResource("players.fxml"));
         Stage stage = (Stage) playerContainer.getScene().getWindow();
         Scene scene = new Scene(root, 12150, 600, Color.NAVY);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-
     }
 
     public void initialize(){
         leagueComboBox.getItems().addAll("Premier League", "La Liga", "Bundesliga", "Serie A", "Ligue 1");
         positionComboBox.getItems().addAll("Goalkeeper", "Defender", "Midfielder", "Forward");
 
-        balanceLabel.setText("Balance: $.2f" + getAccountBalance());
+        balanceLabel.setText(String.format("Balance: $%.2f", getAccountBalance()));
 
         loadPlayers(new ArrayList<>(getAvailablePlayers().values()));
     }
@@ -126,7 +125,7 @@ public class TransferMarketController extends BuySell {
         boolean success = super.buyPlayer(player);
         if (success) {
             updateBalanceLabel();
-            searchPlayers(); // Refresh player list
+            searchPlayers();
         }
         return success;
     }
@@ -135,12 +134,13 @@ public class TransferMarketController extends BuySell {
     private void updateBalanceLabel() {
         balanceLabel.setText(String.format("Balance: $%.2f", getAccountBalance()));
     }
+
     @Override
     public boolean sellPlayer(Player player) {
         boolean success = super.sellPlayer(player);
         if (success) {
             updateBalanceLabel();
-            searchPlayers(); // Refresh player list
+            searchPlayers();
         }
         return success;
     }

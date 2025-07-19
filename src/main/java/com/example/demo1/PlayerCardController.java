@@ -91,7 +91,7 @@ public class PlayerCardController extends BuySell {
 
     public void goToTransferMarket(ActionEvent actionEvent) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("transferMarket.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo1/transferMarket.fxml"));
             Parent root = loader.load();
             TransferMarketController transferMarketController = loader.getController();
             //transferMarketController.setUserName(userNameLabel.getText());
