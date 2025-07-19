@@ -1,0 +1,235 @@
+La Liga,Atlético Madrid,Oblak,GK,86,Reflexes:85;Handling:83;Positioning:82;Diving:87;Kicking:85
+La Liga,Atlético Madrid,Griezmann,Forward,84,Pace:85;Passing:88;Shooting:90;Dribbling:87;Defending:60;Physical:75
+La Liga,Atlético Madrid,Morata,Forward,79,Pace:80;Passing:75;Shooting:88;Dribbling:78;Defending:62;Physical:82
+La Liga,Atlético Madrid,Koke,Midfielder,79,Pace:70;Passing:92;Shooting:72;Dribbling:78;Defending:80;Physical:77
+La Liga,Atlético Madrid,De-Paul,Midfielder,80,Pace:78;Passing:85;Shooting:75;Dribbling:82;Defending:78;Physical:80
+La Liga,Atlético Madrid,Savic,Defender,75,Pace:65;Passing:70;Shooting:60;Dribbling:62;Defending:90;Physical:85
+La Liga,Atlético Madrid,Witsel,Defender,78,Pace:68;Passing:80;Shooting:65;Dribbling:70;Defending:88;Physical:82
+La Liga,Atlético Madrid,Saul,Midfielder,79,Pace:72;Passing:82;Shooting:78;Dribbling:75;Defending:80;Physical:83
+La Liga,Atlético Madrid,Lino,Forward,79,Pace:88;Passing:75;Shooting:80;Dribbling:85;Defending:60;Physical:77
+La Liga,Atlético Madrid,Azpilicueta,Defender,76,Pace:70;Passing:78;Shooting:62;Dribbling:68;Defending:85;Physical:80
+La Liga,Atlético Madrid,Hermoso,Defender,75,Pace:72;Passing:75;Shooting:60;Dribbling:65;Defending:87;Physical:78
+La Liga,Barcelona,Ter Stegen,GK,91,Reflexes:90;Handling:92;Positioning:88;Diving:89;Kicking:85
+La Liga,Barcelona,Lewandowski,Forward,83,Pace:75;Passing:78;Shooting:93;Dribbling:80;Defending:60;Physical:85
+La Liga,Barcelona,Pedri,Midfielder,82,Pace:78;Passing:90;Shooting:72;Dribbling:88;Defending:70;Physical:75
+La Liga,Barcelona,Gavi,Midfielder,82,Pace:80;Passing:85;Shooting:70;Dribbling:85;Defending:78;Physical:80
+La Liga,Barcelona,Lamine Yamal,Forward,86,Pace:90;Passing:80;Shooting:82;Dribbling:92;Defending:60;Physical:70
+La Liga,Barcelona,Raphinha,Forward,85,Pace:88;Passing:78;Shooting:85;Dribbling:87;Defending:62;Physical:75
+La Liga,Barcelona,De-Jong,Midfielder,82,Pace:75;Passing:90;Shooting:70;Dribbling:85;Defending:78;Physical:80
+La Liga,Barcelona,Araujo,Defender,78,Pace:78;Passing:72;Shooting:60;Dribbling:65;Defending:90;Physical:88
+La Liga,Barcelona,Kounde,Defender,78,Pace:80;Passing:75;Shooting:62;Dribbling:70;Defending:88;Physical:82
+La Liga,Barcelona,Ferran Torres,Forward,78,Pace:85;Passing:78;Shooting:82;Dribbling:80;Defending:60;Physical:75
+La Liga,Barcelona,Joao Felix,Forward,79,Pace:85;Passing:80;Shooting:80;Dribbling:88;Defending:60;Physical:72
+La Liga,Barcelona,Christensen,Defender,75,Pace:70;Passing:75;Shooting:60;Dribbling:65;Defending:85;Physical:80
+La Liga,Barcelona,Cancelo,Defender,81,Pace:82;Passing:80;Shooting:65;Dribbling:78;Defending:82;Physical:75
+La Liga,Barcelona,Fermin Lopez,Midfielder,77,Pace:78;Passing:82;Shooting:75;Dribbling:80;Defending:70;Physical:75
+La Liga,Barcelona,Pena,GK,82,Reflexes:85;Handling:82;Positioning:80;Diving:84;Kicking:80
+La Liga,Real Madrid,Courtois,GK,93,Reflexes:93;Handling:90;Positioning:92;Diving:91;Kicking:85
+La Liga,Real Madrid,Mbappe,Forward,89,Pace:95;Passing:80;Shooting:90;Dribbling:92;Defending:60;Physical:78
+La Liga,Real Madrid,Vinicius,Forward,86,Pace:94;Passing:78;Shooting:85;Dribbling:95;Defending:60;Physical:75
+La Liga,Real Madrid,Rodrygo,Forward,81,Pace:90;Passing:78;Shooting:85;Dribbling:88;Defending:60;Physical:72
+La Liga,Real Madrid,Guler,Midfielder,77,Pace:78;Passing:85;Shooting:75;Dribbling:85;Defending:65;Physical:70
+La Liga,Real Madrid,Modric,Midfielder,82,Pace:70;Passing:92;Shooting:72;Dribbling:85;Defending:70;Physical:75
+La Liga,Real Madrid,Bellingham,Midfielder,85,Pace:80;Passing:85;Shooting:80;Dribbling:85;Defending:78;Physical:82
+La Liga,Real Madrid,Rudiger,Defender,84,Pace:75;Passing:70;Shooting:60;Dribbling:65;Defending:90;Physical:88
+La Liga,Real Madrid,Valvarde,Midfielder,84,Pace:82;Passing:85;Shooting:78;Dribbling:80;Defending:80;Physical:85
+La Liga,Real Madrid,Asencio,Defender,74,Pace:70;Passing:72;Shooting:60;Dribbling:65;Defending:85;Physical:80
+La Liga,Real Madrid,Alaba,Defender,78,Pace:78;Passing:80;Shooting:65;Dribbling:75;Defending:85;Physical:78
+La Liga,Real Madrid,Camavinga,Midfielder,79,Pace:80;Passing:82;Shooting:70;Dribbling:82;Defending:80;Physical:80
+La Liga,Real Madrid,G.Garcia,Forward,78,Pace:85;Passing:75;Shooting:80;Dribbling:80;Defending:60;Physical:75
+La Liga,Real Madrid,B.Diaz,Forward,77,Pace:80;Passing:82;Shooting:80;Dribbling:85;Defending:60;Physical:72
+La Liga,Real Madrid,Lunin,GK,78,Reflexes:88;Handling:85;Positioning:85;Diving:87;Kicking:80
+La Liga,Real Madrid,Tchouameni,Midfielder,80,Pace:75;Passing:82;Shooting:70;Dribbling:78;Defending:85;Physical:85
+La Liga,Sevilla,Nyland,GK,82,Reflexes:85;Handling:82;Positioning:80;Diving:84;Kicking:78
+La Liga,Sevilla,En-Nesyri,Forward,78,Pace:82;Passing:70;Shooting:85;Dribbling:78;Defending:60;Physical:80
+La Liga,Sevilla,Ocampos,Forward,79,Pace:85;Passing:75;Shooting:80;Dribbling:80;Defending:65;Physical:82
+La Liga,Sevilla,Rakitic,Midfielder,78,Pace:68;Passing:90;Shooting:75;Dribbling:78;Defending:70;Physical:75
+La Liga,Sevilla,Gudelj,Midfielder,76,Pace:70;Passing:80;Shooting:70;Dribbling:75;Defending:80;Physical:80
+La Liga,Sevilla,Bade,Defender,75,Pace:72;Passing:70;Shooting:60;Dribbling:65;Defending:85;Physical:82
+La Liga,Sevilla,Acuna,Defender,77,Pace:80;Passing:78;Shooting:65;Dribbling:75;Defending:82;Physical:78
+La Liga,Sevilla,Navas,Defender,77,Pace:82;Passing:80;Shooting:65;Dribbling:78;Defending:80;Physical:75
+La Liga,Sevilla,Rafa,Forward,76,Pace:80;Passing:75;Shooting:80;Dribbling:78;Defending:60;Physical:75
+La Liga,Sevilla,Suso,Midfielder,77,Pace:75;Passing:85;Shooting:75;Dribbling:85;Defending:65;Physical:70
+La Liga,Sevilla,Montiel,Defender,74,Pace:78;Passing:75;Shooting:60;Dribbling:70;Defending:80;Physical:75
+La Liga,Sevilla,Lamela,Forward,76,Pace:80;Passing:78;Shooting:78;Dribbling:82;Defending:60;Physical:72
+Premier League,Chelsea,Petrovic,GK,82,Reflexes:85;Handling:82;Positioning:80;Diving:84;Kicking:78
+Premier League,Chelsea,Jackson,Forward,79,Pace:88;Passing:70;Shooting:82;Dribbling:80;Defending:60;Physical:80
+Premier League,Chelsea,Enzo Fernandez,Midfielder,79,Pace:75;Passing:88;Shooting:72;Dribbling:80;Defending:78;Physical:75
+Premier League,Chelsea,Gallagher,Midfielder,78,Pace:78;Passing:82;Shooting:70;Dribbling:78;Defending:80;Physical:80
+Premier League,Chelsea,Joao Pedro,Forward,77,Pace:82;Passing:75;Shooting:80;Dribbling:80;Defending:60;Physical:78
+Premier League,Chelsea,Reece James,Defender,80,Pace:80;Passing:82;Shooting:70;Dribbling:78;Defending:85;Physical:80
+Premier League,Chelsea,Chilwell,Defender,78,Pace:82;Passing:80;Shooting:65;Dribbling:75;Defending:82;Physical:78
+Premier League,Chelsea,Palmer,Forward,79,Pace:80;Passing:82;Shooting:85;Dribbling:85;Defending:60;Physical:75
+Premier League,Chelsea,Nkunku,Forward,79,Pace:85;Passing:80;Shooting:82;Dribbling:88;Defending:60;Physical:72
+Premier League,Chelsea,Caicedo,Midfielder,78,Pace:78;Passing:80;Shooting:70;Dribbling:75;Defending:85;Physical:80
+Premier League,Chelsea,Disasi,Defender,75,Pace:70;Passing:70;Shooting:60;Dribbling:65;Defending:85;Physical:85
+Premier League,Liverpool,Alisson,GK,92,Reflexes:92;Handling:90;Positioning:92;Diving:90;Kicking:85
+Premier League,Liverpool,Salah,Forward,88,Pace:90;Passing:80;Shooting:90;Dribbling:88;Defending:60;Physical:75
+Premier League,Liverpool,Nunez,Forward,80,Pace:88;Passing:70;Shooting:85;Dribbling:80;Defending:60;Physical:82
+Premier League,Liverpool,M.Allister,Midfielder,79,Pace:75;Passing:88;Shooting:72;Dribbling:80;Defending:78;Physical:75
+Premier League,Liverpool,Van-Dijk,Defender,84,Pace:75;Passing:80;Shooting:65;Dribbling:70;Defending:92;Physical:90
+Premier League,Liverpool,Arnold,Defender,80,Pace:80;Passing:90;Shooting:70;Dribbling:78;Defending:82;Physical:78
+Premier League,Liverpool,Diaz,Forward,80,Pace:90;Passing:75;Shooting:80;Dribbling:88;Defending:60;Physical:75
+Premier League,Liverpool,Jota,Forward,84,Pace:85;Passing:75;Shooting:85;Dribbling:80;Defending:60;Physical:78
+Premier League,Liverpool,Szoboszlai,Midfielder,80,Pace:80;Passing:85;Shooting:78;Dribbling:80;Defending:75;Physical:80
+Premier League,Liverpool,Konate,Defender,77,Pace:78;Passing:70;Shooting:60;Dribbling:65;Defending:88;Physical:85
+Premier League,Liverpool,Gakpo,Forward,80,Pace:85;Passing:78;Shooting:82;Dribbling:85;Defending:60;Physical:80
+Premier League,Liverpool,Robertson,Defender,79,Pace:82;Passing:80;Shooting:65;Dribbling:75;Defending:85;Physical:78
+Premier League,Manchester City,Ederson,GK,89,Reflexes:90;Handling:88;Positioning:90;Diving:88;Kicking:90
+Premier League,Manchester City,Haaland,Forward,89,Pace:85;Passing:70;Shooting:95;Dribbling:78;Defending:60;Physical:90
+Premier League,Manchester City,De-Bruyne,Midfielder,87,Pace:75;Passing:95;Shooting:85;Dribbling:80;Defending:70;Physical:78
+Premier League,Manchester City,Rodri,Midfielder,86,Pace:70;Passing:88;Shooting:70;Dribbling:75;Defending:85;Physical:85
+Premier League,Manchester City,Dias,Defender,79,Pace:75;Passing:80;Shooting:60;Dribbling:70;Defending:90;Physical:85
+Premier League,Manchester City,Foden,Forward,82,Pace:85;Passing:82;Shooting:85;Dribbling:88;Defending:60;Physical:72
+Premier League,Manchester City,Grealish,Forward,77,Pace:80;Passing:80;Shooting:78;Dribbling:88;Defending:60;Physical:75
+Premier League,Manchester City,Walker,Defender,78,Pace:90;Passing:75;Shooting:60;Dribbling:70;Defending:85;Physical:80
+Premier League,Manchester City,Gvardiol,Defender,80,Pace:78;Passing:78;Shooting:65;Dribbling:75;Defending:85;Physical:80
+Premier League,Manchester City,Silva,Midfielder,78,Pace:75;Passing:88;Shooting:75;Dribbling:85;Defending:70;Physical:72
+Premier League,Manchester City,Alvarez,Forward,78,Pace:82;Passing:78;Shooting:85;Dribbling:80;Defending:60;Physical:75
+Premier League,Manchester United,Onana,GK,86,Reflexes:88;Handling:85;Positioning:85;Diving:87;Kicking:85
+Premier League,Manchester United,Rashford,Forward,81,Pace:90;Passing:75;Shooting:85;Dribbling:85;Defending:60;Physical:75
+Premier League,Manchester United,B.Fernandes,Midfielder,81,Pace:75;Passing:90;Shooting:80;Dribbling:80;Defending:75;Physical:78
+Premier League,Manchester United,Casemiro,Midfielder,80,Pace:70;Passing:80;Shooting:70;Dribbling:75;Defending:85;Physical:85
+Premier League,Manchester United,Varane,Defender,77,Pace:75;Passing:75;Shooting:60;Dribbling:65;Defending:88;Physical:82
+Premier League,Manchester United,Martinez,Defender,76,Pace:72;Passing:78;Shooting:60;Dribbling:70;Defending:85;Physical:80
+Premier League,Manchester United,Mount,Midfielder,77,Pace:78;Passing:82;Shooting:75;Dribbling:80;Defending:70;Physical:75
+Premier League,Manchester United,Antony,Forward,78,Pace:85;Passing:75;Shooting:80;Dribbling:85;Defending:60;Physical:72
+Premier League,Manchester United,Garnacho,Forward,78,Pace:88;Passing:75;Shooting:80;Dribbling:85;Defending:60;Physical:70
+Premier League,Manchester United,Shaw,Defender,78,Pace:80;Passing:80;Shooting:65;Dribbling:75;Defending:85;Physical:78
+Premier League,Manchester United,Lindelof,Defender,73,Pace:70;Passing:75;Shooting:60;Dribbling:65;Defending:80;Physical:78
+Premier League,Tottenham,Vicario,GK,82,Reflexes:85;Handling:82;Positioning:80;Diving:84;Kicking:78
+Premier League,Tottenham,Son,Forward,84,Pace:88;Passing:78;Shooting:85;Dribbling:85;Defending:60;Physical:75
+Premier League,Tottenham,Maddison,Midfielder,78,Pace:78;Passing:85;Shooting:78;Dribbling:85;Defending:65;Physical:72
+Premier League,Tottenham,Bentancur,Midfielder,77,Pace:75;Passing:80;Shooting:70;Dribbling:78;Defending:80;Physical:80
+Premier League,Tottenham,Romero,Defender,76,Pace:75;Passing:70;Shooting:60;Dribbling:65;Defending:88;Physical:85
+Premier League,Tottenham,Richarlison,Forward,78,Pace:82;Passing:75;Shooting:82;Dribbling:80;Defending:60;Physical:80
+Premier League,Tottenham,Bissouma,Midfielder,78,Pace:78;Passing:80;Shooting:70;Dribbling:75;Defending:85;Physical:82
+Premier League,Tottenham,Porro,Defender,78,Pace:80;Passing:82;Shooting:65;Dribbling:75;Defending:82;Physical:78
+Premier League,Tottenham,Udogie,Defender,77,Pace:85;Passing:75;Shooting:60;Dribbling:75;Defending:82;Physical:80
+Premier League,Tottenham,Sarr,Midfielder,78,Pace:80;Passing:80;Shooting:70;Dribbling:78;Defending:80;Physical:78
+Premier League,Tottenham,Kulusevski,Forward,78,Pace:82;Passing:78;Shooting:80;Dribbling:85;Defending:60;Physical:75
+Premier League,Arsenal,Raya,GK,85,Reflexes:88;Handling:85;Positioning:85;Diving:87;Kicking:80
+Premier League,Arsenal,Saliba,Defender,79,Pace:78;Passing:80;Shooting:60;Dribbling:70;Defending:90;Physical:85
+Premier League,Arsenal,White,Defender,78,Pace:80;Passing:78;Shooting:65;Dribbling:75;Defending:85;Physical:80
+Premier League,Arsenal,Gabriel,Defender,76,Pace:75;Passing:70;Shooting:60;Dribbling:65;Defending:88;Physical:85
+Premier League,Arsenal,Tierney,Defender,77,Pace:82;Passing:75;Shooting:65;Dribbling:75;Defending:82;Physical:78
+Premier League,Arsenal,Rice,Midfielder,80,Pace:78;Passing:85;Shooting:70;Dribbling:78;Defending:85;Physical:82
+Premier League,Arsenal,Odegaard,Midfielder,80,Pace:75;Passing:90;Shooting:80;Dribbling:85;Defending:70;Physical:75
+Premier League,Arsenal,Merino,Midfielder,78,Pace:75;Passing:82;Shooting:72;Dribbling:78;Defending:80;Physical:78
+Premier League,Arsenal,Saka,Forward,83,Pace:88;Passing:80;Shooting:85;Dribbling:88;Defending:60;Physical:75
+Premier League,Arsenal,Jesus,Forward,78,Pace:82;Passing:75;Shooting:85;Dribbling:80;Defending:60;Physical:78
+Premier League,Arsenal,Martinelli,Forward,80,Pace:90;Passing:78;Shooting:82;Dribbling:85;Defending:60;Physical:75
+Premier League,Leicester City,Hermansen,GK,79,Reflexes:82;Handling:80;Positioning:78;Diving:82;Kicking:75
+Premier League,Leicester City,Justin,Defender,75,Pace:78;Passing:75;Shooting:60;Dribbling:70;Defending:80;Physical:78
+Premier League,Leicester City,Faes,Defender,73,Pace:70;Passing:70;Shooting:60;Dribbling:65;Defending:82;Physical:80
+Premier League,Leicester City,Coady,Defender,73,Pace:68;Passing:75;Shooting:60;Dribbling:65;Defending:80;Physical:82
+Premier League,Leicester City,Okoli,Defender,73,Pace:72;Passing:70;Shooting:60;Dribbling:65;Defending:80;Physical:80
+Premier League,Leicester City,Hamza,Midfielder,77,Pace:75;Passing:78;Shooting:65;Dribbling:75;Defending:78;Physical:78
+Premier League,Leicester City,El Khannouss,Midfielder,76,Pace:80;Passing:82;Shooting:70;Dribbling:80;Defending:70;Physical:75
+Premier League,Leicester City,Winks,Midfielder,75,Pace:75;Passing:80;Shooting:65;Dribbling:78;Defending:75;Physical:75
+Premier League,Leicester City,Mavididi,Forward,78,Pace:85;Passing:75;Shooting:80;Dribbling:82;Defending:60;Physical:75
+Premier League,Leicester City,Daka,Forward,76,Pace:82;Passing:70;Shooting:80;Dribbling:78;Defending:60;Physical:78
+Premier League,Leicester City,Fatawu,Forward,78,Pace:88;Passing:75;Shooting:78;Dribbling:80;Defending:60;Physical:75
+Saudi Pro League,Al Hilal,Bounou,GK,85,Reflexes:88;Handling:85;Positioning:85;Diving:87;Kicking:80
+Saudi Pro League,Al Hilal,Koulibaly,Defender,78,Pace:75;Passing:75;Shooting:60;Dribbling:70;Defending:88;Physical:85
+Saudi Pro League,Al Hilal,Al-Dawsari,Defender,76,Pace:78;Passing:75;Shooting:65;Dribbling:75;Defending:80;Physical:78
+Saudi Pro League,Al Hilal,Al-Tambakti,Defender,73,Pace:70;Passing:70;Shooting:60;Dribbling:65;Defending:80;Physical:80
+Saudi Pro League,Al Hilal,Cancelo,Defender,78,Pace:82;Passing:80;Shooting:65;Dribbling:78;Defending:82;Physical:75
+Saudi Pro League,Al Hilal,Lodi,Midfielder,78,Pace:80;Passing:82;Shooting:70;Dribbling:80;Defending:75;Physical:78
+Saudi Pro League,Al Hilal,Neves,Midfielder,78,Pace:75;Passing:85;Shooting:70;Dribbling:78;Defending:80;Physical:78
+Saudi Pro League,Al Hilal,Milinković-Savić,Midfielder,80,Pace:72;Passing:85;Shooting:78;Dribbling:80;Defending:78;Physical:82
+Saudi Pro League,Al Hilal,Malcom,Forward,79,Pace:85;Passing:78;Shooting:82;Dribbling:85;Defending:60;Physical:75
+Saudi Pro League,Al Hilal,Leonardo,Forward,76,Pace:80;Passing:75;Shooting:80;Dribbling:78;Defending:60;Physical:78
+Saudi Pro League,Al Hilal,Al-Dawsari,Forward,77,Pace:82;Passing:75;Shooting:80;Dribbling:80;Defending:60;Physical:75
+Saudi Pro League,Al Nassr,Bento,GK,82,Reflexes:85;Handling:82;Positioning:80;Diving:84;Kicking:78
+Saudi Pro League,Al Nassr,Al-Harbi,GK,78,Reflexes:80;Handling:78;Positioning:75;Diving:80;Kicking:75
+Saudi Pro League,Al Nassr,Ospina,GK,82,Reflexes:85;Handling:82;Positioning:80;Diving:84;Kicking:78
+Saudi Pro League,Al Nassr,Mane,Forward,81,Pace:88;Passing:78;Shooting:85;Dribbling:85;Defending:60;Physical:78
+Saudi Pro League,Al Nassr,Simakan,Defender,76,Pace:78;Passing:75;Shooting:60;Dribbling:70;Defending:85;Physical:80
+Saudi Pro League,Al Nassr,Laporte,Defender,77,Pace:72;Passing:80;Shooting:60;Dribbling:70;Defending:88;Physical:82
+Saudi Pro League,Al Nassr,Al-Amri,Defender,72,Pace:70;Passing:70;Shooting:60;Dribbling:65;Defending:80;Physical:78
+Saudi Pro League,Al Nassr,Al-Khaibari,Midfielder,75,Pace:75;Passing:78;Shooting:65;Dribbling:75;Defending:78;Physical:78
+Saudi Pro League,Al Nassr,Ghareeb,Forward,76,Pace:80;Passing:75;Shooting:78;Dribbling:80;Defending:60;Physical:75
+Saudi Pro League,Al Nassr,Wesley,Forward,76,Pace:82;Passing:75;Shooting:80;Dribbling:78;Defending:60;Physical:75
+Saudi Pro League,Al Nassr,Ronaldo,Forward,87,Pace:85;Passing:78;Shooting:95;Dribbling:85;Defending:60;Physical:80
+Ligue 1,Paris Saint-Germain,Donnarumma,GK,88,Reflexes:90;Handling:88;Positioning:90;Diving:88;Kicking:85
+Ligue 1,Paris Saint-Germain,Marquinhos,Defender,77,Pace:75;Passing:80;Shooting:60;Dribbling:70;Defending:88;Physical:80
+Ligue 1,Paris Saint-Germain,Skriniar,Defender,75,Pace:70;Passing:75;Shooting:60;Dribbling:65;Defending:85;Physical:82
+Ligue 1,Paris Saint-Germain,Hakimi,Defender,85,Pace:90;Passing:80;Shooting:70;Dribbling:80;Defending:82;Physical:78
+Ligue 1,Paris Saint-Germain,N.Mendes,Defender,77,Pace:85;Passing:78;Shooting:65;Dribbling:75;Defending:80;Physical:75
+Ligue 1,Paris Saint-Germain,Vitinha,Midfielder,78,Pace:78;Passing:85;Shooting:72;Dribbling:80;Defending:75;Physical:75
+Ligue 1,Paris Saint-Germain,R.Sanches,Midfielder,77,Pace:80;Passing:80;Shooting:70;Dribbling:78;Defending:75;Physical:78
+Ligue 1,Paris Saint-Germain,Warren Zaïre-Emery,Midfielder,77,Pace:78;Passing:82;Shooting:70;Dribbling:80;Defending:78;Physical:75
+Ligue 1,Paris Saint-Germain,Doue,Forward,78,Pace:85;Passing:75;Shooting:80;Dribbling:82;Defending:60;Physical:75
+Ligue 1,Paris Saint-Germain,Dembele,Forward,85,Pace:90;Passing:78;Shooting:82;Dribbling:88;Defending:60;Physical:75
+Ligue 1,Paris Saint-Germain,Kolo-Muani,Forward,78,Pace:85;Passing:75;Shooting:82;Dribbling:80;Defending:60;Physical:78
+Ligue 1,Olympique Lyonnais,Anthony Lopes,GK,82,Reflexes:85;Handling:82;Positioning:80;Diving:84;Kicking:78
+Ligue 1,Olympique Lyonnais,Castello Lukeba,Defender,75,Pace:75;Passing:75;Shooting:60;Dribbling:70;Defending:82;Physical:80
+Ligue 1,Olympique Lyonnais,Malo Gusto,Defender,76,Pace:80;Passing:78;Shooting:65;Dribbling:75;Defending:80;Physical:75
+Ligue 1,Olympique Lyonnais,Sinaly Diomandé,Defender,73,Pace:72;Passing:70;Shooting:60;Dribbling:65;Defending:80;Physical:82
+Ligue 1,Olympique Lyonnais,J.Lepenant,Midfielder,74,Pace:75;Passing:78;Shooting:65;Dribbling:75;Defending:78;Physical:75
+Ligue 1,Olympique Lyonnais,M.Caqueret,Midfielder,77,Pace:78;Passing:82;Shooting:70;Dribbling:80;Defending:75;Physical:75
+Ligue 1,Olympique Lyonnais,C.Tolisso,Midfielder,77,Pace:75;Passing:80;Shooting:72;Dribbling:78;Defending:78;Physical:80
+Ligue 1,Olympique Lyonnais,R.Faivre,Midfielder,77,Pace:78;Passing:82;Shooting:72;Dribbling:80;Defending:70;Physical:75
+Ligue 1,Olympique Lyonnais,A.Lacazette,Forward,78,Pace:80;Passing:75;Shooting:85;Dribbling:80;Defending:60;Physical:80
+Ligue 1,Olympique Lyonnais,M.Dembele,Forward,77,Pace:82;Passing:75;Shooting:82;Dribbling:78;Defending:60;Physical:78
+Ligue 1,Olympique Lyonnais,L.Paqueta,Forward,78,Pace:80;Passing:80;Shooting:80;Dribbling:85;Defending:65;Physical:78
+Bundesliga,Bayern Munich,Neuer,GK,93,Reflexes:92;Handling:90;Positioning:92;Diving:90;Kicking:85
+Bundesliga,Bayern Munich,Peretz,GK,79,Reflexes:82;Handling:80;Positioning:78;Diving:82;Kicking:75
+Bundesliga,Bayern Munich,Ulreich,GK,78,Reflexes:80;Handling:78;Positioning:75;Diving:80;Kicking:75
+Bundesliga,Bayern Munich,Urbig,GK,78,Reflexes:80;Handling:78;Positioning:75;Diving:80;Kicking:75
+Bundesliga,Bayern Munich,Upamecano,Defender,78,Pace:78;Passing:75;Shooting:60;Dribbling:70;Defending:88;Physical:85
+Bundesliga,Bayern Munich,Kim,Defender,76,Pace:75;Passing:75;Shooting:60;Dribbling:65;Defending:85;Physical:82
+Bundesliga,Bayern Munich,Guerreiro,Defender,78,Pace:80;Passing:82;Shooting:70;Dribbling:78;Defending:80;Physical:75
+Bundesliga,Bayern Munich,Boey,Defender,77,Pace:82;Passing:75;Shooting:65;Dribbling:75;Defending:82;Physical:78
+Bundesliga,Bayern Munich,Kimmich,Midfielder,84,Pace:75;Passing:90;Shooting:75;Dribbling:80;Defending:82;Physical:78
+Bundesliga,Bayern Munich,Goretzka,Midfielder,84,Pace:78;Passing:85;Shooting:78;Dribbling:80;Defending:80;Physical:85
+Bundesliga,Bayern Munich,Musiala,Midfielder,81,Pace:85;Passing:82;Shooting:80;Dribbling:88;Defending:65;Physical:75
+Bundesliga,Bayern Munich,Coman,Forward,81,Pace:90;Passing:78;Shooting:82;Dribbling:88;Defending:60;Physical:75
+Bundesliga,Bayern Munich,Kane,Forward,86,Pace:75;Passing:80;Shooting:92;Dribbling:80;Defending:60;Physical:82
+Bundesliga,Borussia Dortmund,Kobel,GK,85,Reflexes:88;Handling:85;Positioning:85;Diving:87;Kicking:80
+Bundesliga,Borussia Dortmund,Anton,Defender,73,Pace:70;Passing:70;Shooting:60;Dribbling:65;Defending:80;Physical:80
+Bundesliga,Borussia Dortmund,Schlotterbeck,Defender,76,Pace:75;Passing:75;Shooting:60;Dribbling:70;Defending:85;Physical:82
+Bundesliga,Borussia Dortmund,Bensebaini,Defender,77,Pace:78;Passing:75;Shooting:65;Dribbling:75;Defending:82;Physical:80
+Bundesliga,Borussia Dortmund,Can,Defender,76,Pace:75;Passing:78;Shooting:65;Dribbling:75;Defending:80;Physical:78
+Bundesliga,Borussia Dortmund,Ryerson,Defender,76,Pace:80;Passing:75;Shooting:65;Dribbling:75;Defending:80;Physical:78
+Bundesliga,Borussia Dortmund,Brandt,Midfielder,78,Pace:78;Passing:85;Shooting:75;Dribbling:82;Defending:70;Physical:75
+Bundesliga,Borussia Dortmund,Gross,Midfielder,76,Pace:75;Passing:82;Shooting:70;Dribbling:78;Defending:75;Physical:75
+Bundesliga,Borussia Dortmund,Sabitzer,Midfielder,78,Pace:78;Passing:80;Shooting:75;Dribbling:78;Defending:78;Physical:78
+Bundesliga,Borussia Dortmund,Chukwuemeka,Midfielder,77,Pace:80;Passing:80;Shooting:70;Dribbling:80;Defending:75;Physical:75
+Bundesliga,Borussia Dortmund,Guirassy,Forward,79,Pace:82;Passing:75;Shooting:85;Dribbling:80;Defending:60;Physical:80
+Bundesliga,Borussia Dortmund,Adeyemi,Forward,79,Pace:90;Passing:75;Shooting:80;Dribbling:85;Defending:60;Physical:75
+Bundesliga,Borussia Dortmund,Beier,Forward,78,Pace:85;Passing:75;Shooting:80;Dribbling:80;Defending:60;Physical:75
+Bundesliga,Bayer Leverkusen,Hradecký,GK,82,Reflexes:85;Handling:82;Positioning:80;Diving:84;Kicking:78
+Bundesliga,Bayer Leverkusen,Grimaldo,Defender,78,Pace:82;Passing:82;Shooting:70;Dribbling:78;Defending:80;Physical:75
+Bundesliga,Bayer Leverkusen,Tah,Defender,76,Pace:70;Passing:75;Shooting:60;Dribbling:65;Defending:88;Physical:85
+Bundesliga,Bayer Leverkusen,Tapsoba,Defender,76,Pace:75;Passing:75;Shooting:60;Dribbling:70;Defending:85;Physical:82
+Bundesliga,Bayer Leverkusen,Xhaka,Midfielder,79,Pace:70;Passing:88;Shooting:75;Dribbling:75;Defending:80;Physical:80
+Bundesliga,Bayer Leverkusen,Palacios,Midfielder,77,Pace:75;Passing:82;Shooting:70;Dribbling:78;Defending:78;Physical:78
+Bundesliga,Bayer Leverkusen,Wirtz,Midfielder,81,Pace:80;Passing:85;Shooting:78;Dribbling:88;Defending:65;Physical:75
+Bundesliga,Bayer Leverkusen,Hofmann,Midfielder,77,Pace:78;Passing:82;Shooting:75;Dribbling:80;Defending:70;Physical:75
+Bundesliga,Bayer Leverkusen,Boniface,Forward,79,Pace:82;Passing:75;Shooting:85;Dribbling:80;Defending:60;Physical:80
+Bundesliga,Bayer Leverkusen,Schick,Forward,78,Pace:80;Passing:75;Shooting:85;Dribbling:78;Defending:60;Physical:80
+Bundesliga,Bayer Leverkusen,Adli,Forward,78,Pace:85;Passing:78;Shooting:80;Dribbling:82;Defending:60;Physical:75
+MLS,Inter Miami CF,Callender,GK,79,Reflexes:82;Handling:80;Positioning:78;Diving:82;Kicking:75
+MLS,Inter Miami CF,Weigandt,Defender,75,Pace:78;Passing:75;Shooting:60;Dribbling:70;Defending:80;Physical:78
+MLS,Inter Miami CF,Alba,Defender,77,Pace:80;Passing:82;Shooting:65;Dribbling:78;Defending:80;Physical:75
+MLS,Inter Miami CF,Aviles,Defender,73,Pace:75;Passing:70;Shooting:60;Dribbling:65;Defending:80;Physical:78
+MLS,Inter Miami CF,Falcon,Defender,73,Pace:70;Passing:70;Shooting:60;Dribbling:65;Defending:80;Physical:80
+MLS,Inter Miami CF,Busquets,Midfielder,78,Pace:65;Passing:90;Shooting:65;Dribbling:75;Defending:80;Physical:75
+MLS,Inter Miami CF,Redondo,Midfielder,77,Pace:78;Passing:82;Shooting:70;Dribbling:80;Defending:75;Physical:75
+MLS,Inter Miami CF,Cremaschi,Midfielder,75,Pace:80;Passing:78;Shooting:70;Dribbling:78;Defending:70;Physical:75
+MLS,Inter Miami CF,Messi,Forward,87,Pace:80;Passing:90;Shooting:92;Dribbling:95;Defending:60;Physical:70
+MLS,Inter Miami CF,Suarez,Forward,78,Pace:75;Passing:78;Shooting:90;Dribbling:80;Defending:60;Physical:80
+MLS,Inter Miami CF,Allende,Forward,76,Pace:80;Passing:75;Shooting:80;Dribbling:80;Defending:60;Physical:75
+MLS,Philadelphia Union,Blake,GK,79,Reflexes:82;Handling:80;Positioning:78;Diving:82;Kicking:75
+MLS,Philadelphia Union,Glesnes,Defender,73,Pace:70;Passing:70;Shooting:60;Dribbling:65;Defending:80;Physical:80
+MLS,Philadelphia Union,Glavinovich,Defender,72,Pace:70;Passing:70;Shooting:60;Dribbling:65;Defending:80;Physical:78
+MLS,Philadelphia Union,Wagner,Defender,74,Pace:75;Passing:75;Shooting:60;Dribbling:70;Defending:80;Physical:78
+MLS,Philadelphia Union,Mbaizo,Defender,73,Pace:78;Passing:70;Shooting:60;Dribbling:70;Defending:80;Physical:75
+MLS,Philadelphia Union,Vassilev,Midfielder,75,Pace:78;Passing:78;Shooting:70;Dribbling:78;Defending:70;Physical:75
+MLS,Philadelphia Union,R.Sullivan,Midfielder,72,Pace:75;Passing:78;Shooting:65;Dribbling:75;Defending:70;Physical:75
+MLS,Philadelphia Union,Bender,Midfielder,73,Pace:75;Passing:78;Shooting:65;Dribbling:75;Defending:70;Physical:75
+MLS,Philadelphia Union,Quinn,Forward,76,Pace:80;Passing:75;Shooting:78;Dribbling:78;Defending:60;Physical:75
+MLS,Philadelphia Union,Damiani,Forward,76,Pace:80;Passing:75;Shooting:78;Dribbling:78;Defending:60;Physical:75
+MLS,Philadelphia Union,Q.Sullivan,Forward,74,Pace:80;Passing:75;Shooting:78;Dribbling:78;Defending:60;Physical:75

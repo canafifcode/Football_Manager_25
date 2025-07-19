@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1215.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.TransferMarketController">
+   <children>
+      <ImageView fitHeight="752.0" fitWidth="1236.0" layoutX="-3.0" layoutY="-95.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@TransferMarket.jpg" />
+         </image></ImageView>
+      <Label layoutX="375.0" layoutY="38.0" prefHeight="58.0" prefWidth="481.0" text="Welcome To Transfer Market" textFill="#7cebff">
+         <font>
+            <Font name="Fira Code Retina" size="30.0" />
+         </font>
+      </Label>
+      <HBox layoutX="10.0" layoutY="10.0" spacing="10.0" />
+      <TextField fx:id="nameField" blendMode="HARD_LIGHT" layoutX="260.0" layoutY="122.0" promptText="Search by Name" />
+      <TextField fx:id="clubField" blendMode="HARD_LIGHT" layoutX="419.0" layoutY="122.0" promptText="Search by Club" />
+      <ComboBox fx:id="leagueComboBox" blendMode="HARD_LIGHT" layoutX="582.0" layoutY="122.0" promptText="Select League" />
+      <ComboBox fx:id="positionComboBox" blendMode="HARD_LIGHT" layoutX="714.0" layoutY="121.0" promptText="Select Position" />
+      <Button fx:id="searchButton" blendMode="HARD_LIGHT" layoutX="850.0" layoutY="121.0" onAction="#searchPlayers" style="-fx-background-color: lightgreen;" text="Search" />
+      <Button fx:id="backButton" blendMode="HARD_LIGHT" layoutX="1055.0" layoutY="535.0" onAction="#goBack" prefHeight="30.0" prefWidth="88.0" text="Back">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Label layoutX="47.0" layoutY="525.0" text="Your Balance:" textFill="WHITE">
+         <font>
+            <Font name="Georgia" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="updateBalanceLabel" alignment="CENTER" layoutX="153.0" layoutY="519.0" prefHeight="32.0" prefWidth="120.0" text="BALANCE" textAlignment="CENTER" textFill="#85fff8">
+         <font>
+            <Font name="Impact" size="25.0" />
+         </font></Label>
+   </children>
+</AnchorPane>

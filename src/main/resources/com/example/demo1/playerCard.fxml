@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="120.0" prefWidth="945.0" style="-fx-background-color: blue; -fx-border-color: white; -fx-border-width: 1;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.PlayerCardItemController">
+    <children>
+        <Label fx:id="nameLabel" layoutX="10.0" layoutY="14.0" prefHeight="25.0" prefWidth="200.0" text="Name" textFill="WHITE">
+            <font>
+                <Font name="Arial Black" size="14.0" />
+            </font>
+        </Label>
+        <Label fx:id="positionLabel" layoutX="10.0" layoutY="48.0" prefHeight="25.0" prefWidth="200.0" text="Position" textFill="WHITE">
+            <font>
+                <Font name="Arial Black" size="14.0" />
+            </font>
+        </Label>
+        <Label fx:id="overallLabel" layoutX="10.0" layoutY="78.0" prefHeight="25.0" prefWidth="200.0" text="Overall" textFill="WHITE">
+            <font>
+                <Font name="Arial Black" size="14.0" />
+            </font>
+        </Label>
+        <Label fx:id="statsLabel" layoutX="210.0" layoutY="33.0" prefHeight="114.0" prefWidth="419.0" text="Stats" textFill="WHITE" wrapText="true">
+            <font>
+                <Font name="Arial Black" size="14.0" />
+            </font>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </Label>
+    </children>
+</AnchorPane>
