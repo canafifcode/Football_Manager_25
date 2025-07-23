@@ -1,6 +1,8 @@
 package com.example.demo1;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import java.util.Arrays;
 import java.util.List;
@@ -19,6 +21,11 @@ public class PlayerCardItemController extends BuySell {
 
     @FXML
     private Label statsLabel;
+
+    @FXML
+    private Button sellPlayerButton;
+
+    private Player player;
 
     private static final List<String> NON_GK_STATS = Arrays.asList("Pace", "Passing", "Shooting", "Dribbling", "Defending", "Physical");
     private static final List<String> GK_STATS = Arrays.asList("Reflexes", "Handling", "Positioning", "Diving", "Kicking");
@@ -56,5 +63,29 @@ public class PlayerCardItemController extends BuySell {
                 statsLabel.setText("Stats: None available");
             }
         }
+    }
+
+    @FXML
+    public void sellPlayerAction(ActionEvent event) {
+        if (player == null) {
+            System.out.println("Error: No player selected for selling");
+            return;
+        }
+        boolean success = sellPlayer(player);
+        if (success) {
+            System.out.println("Player " + player.getName() + " sold successfully");
+            // Optionally refresh the UI by reloading players
+            if (sellPlayerButton.getScene().getRoot().getUserData() instanceof SellPlayerController controller) {
+                controller.loadOwnedPlayers();
+            }
+        } else {
+            System.out.println("Failed to sell player " + player.getName());
+        }
+    }
+
+    public void setPlayerData(Player player, String username, String userTeam) {
+        this.player = player;
+        setPlayerData(player);
+        // Set user data if needed for further actions
     }
 }

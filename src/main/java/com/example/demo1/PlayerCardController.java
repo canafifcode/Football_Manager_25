@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 public class PlayerCardController extends BuySell {
@@ -83,7 +84,7 @@ public class PlayerCardController extends BuySell {
     public void goBack(javafx.event.ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
         Stage stage = (Stage) playerContainer.getScene().getWindow();
-        Scene scene = new Scene(root, 12150, 600, Color.NAVY);
+        Scene scene = new Scene(root, 1215, 600, Color.NAVY);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
@@ -91,17 +92,22 @@ public class PlayerCardController extends BuySell {
 
     public void goToTransferMarket(ActionEvent actionEvent) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo1/transferMarket.fxml"));
+            URL resource = getClass().getResource("transferMarket.fxml");
+            if (resource == null) {
+                System.out.println("transferMarket.fxml not found in resources!");
+                return;
+            }
+            FXMLLoader loader = new FXMLLoader(resource);
             Parent root = loader.load();
             TransferMarketController transferMarketController = loader.getController();
-            //transferMarketController.setUserName(userNameLabel.getText());
             Stage stage = (Stage) playerContainer.getScene().getWindow();
             Scene scene = new Scene(root, 1215, 600, Color.NAVY);
             stage.setScene(scene);
             stage.setResizable(false);
             stage.show();
         } catch (IOException e) {
-            System.out.println("Error loading transferMarket.fxml: " + e.getMessage());
+            System.out.println("Error loading transferMarket.fxml: ");
+            e.printStackTrace();
         }
     }
 }

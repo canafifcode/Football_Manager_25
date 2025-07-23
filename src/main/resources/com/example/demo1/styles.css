@@ -1,0 +1,31 @@
+/* Make the ScrollPane background transparent */
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+/* Make the viewport transparent */
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Make scroll bars transparent */
+.scroll-pane .scroll-bar:vertical,
+.scroll-pane .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+
+/* Optional: Make scroll bar thumb and track transparent or semi-transparent */
+.scroll-pane .scroll-bar:vertical .thumb,
+.scroll-pane .scroll-bar:horizontal .thumb {
+    -fx-background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent thumb */
+}
+
+.scroll-pane .scroll-bar:vertical .track,
+.scroll-pane .scroll-bar:horizontal .track {
+    -fx-background-color: transparent;
+}
+
+/* Ensure corner is transparent */
+.scroll-pane .corner {
+    -fx-background-color: transparent;
+}

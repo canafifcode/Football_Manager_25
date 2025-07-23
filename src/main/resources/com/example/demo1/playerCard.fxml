@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="120.0" prefWidth="945.0" style="-fx-background-color: blue; -fx-border-color: white; -fx-border-width: 1;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.PlayerCardItemController">
+<AnchorPane prefHeight="120.0" prefWidth="945.0" style="-fx-background-color: #003087; -fx-border-color: white; -fx-border-width: 1;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.PlayerCardItemController">
     <children>
         <Label fx:id="nameLabel" layoutX="10.0" layoutY="14.0" prefHeight="25.0" prefWidth="200.0" text="Name" textFill="WHITE">
             <font>

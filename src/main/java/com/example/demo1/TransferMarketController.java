@@ -6,20 +6,24 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class TransferMarketController extends BuySell {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    // Add fields to store username and team
+    private String username;
+    private String userTeam;
 
     @FXML
     private TextField nameField;
@@ -37,6 +41,9 @@ public class TransferMarketController extends BuySell {
     private Button searchButton;
 
     @FXML
+    private Button sellButton;
+
+    @FXML
     private Button backButton;
 
     @FXML
@@ -44,6 +51,12 @@ public class TransferMarketController extends BuySell {
 
     @FXML
     private AnchorPane playerContainer;
+
+    // Setters for username and team
+    public void setUserData(String username, String userTeam) {
+        this.username = username;
+        this.userTeam = userTeam;
+    }
 
     @FXML
     public void searchPlayers() {
@@ -75,9 +88,12 @@ public class TransferMarketController extends BuySell {
         loadPlayers(filteredPlayers);
     }
 
+    public void handleButtonClick(ActionEvent event) {
+        System.out.println("Button clicked!");
+    }
+
     private void loadPlayers(ArrayList<Player> Players) {
         playerContainer.getChildren().clear();
-
         if (Players.isEmpty()) {
             System.out.println("No Players found for the given criteria.");
         }
@@ -91,7 +107,6 @@ public class TransferMarketController extends BuySell {
                 playerContainer.getChildren().add(playerCard);
                 AnchorPane.setTopAnchor(playerCard, yOffset);
                 AnchorPane.setLeftAnchor(playerCard, 5.0);
-                playerContainer.getChildren().add(playerCard);
                 yOffset += playerCard.getPrefHeight() + 5.0;
             } catch (IOException e) {
                 System.out.println("Error loading playerCard.fxml for player: " + player.getName());
@@ -103,21 +118,29 @@ public class TransferMarketController extends BuySell {
 
     @FXML
     public void goBack(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("players.fxml"));
+        URL resource = getClass().getResource("players.fxml");
+        if (resource == null) {
+            System.out.println("Error: players.fxml not found in resources!");
+            return;
+        }
+        FXMLLoader loader = new FXMLLoader(resource);
+        Parent root = loader.load();
+        PlayerCardController controller = loader.getController();
+        controller.loadPlayersForTeam(userTeam);
+        controller.setUserName(username);
+        controller.setTeamLogo(userTeam);
         Stage stage = (Stage) playerContainer.getScene().getWindow();
-        Scene scene = new Scene(root, 12150, 600, Color.NAVY);
+        Scene scene = new Scene(root, 1215, 600, Color.NAVY);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
     }
 
-    public void initialize(){
+    public void initialize() {
         leagueComboBox.getItems().addAll("Premier League", "La Liga", "Bundesliga", "Serie A", "Ligue 1");
         positionComboBox.getItems().addAll("Goalkeeper", "Defender", "Midfielder", "Forward");
 
-        balanceLabel.setText(String.format("Balance: $%.2f", getAccountBalance()));
-
-        loadPlayers(new ArrayList<>(getAvailablePlayers().values()));
+        balanceLabel.setText(String.format("$%.2f", getAccountBalance()));
     }
 
     @Override
@@ -132,7 +155,7 @@ public class TransferMarketController extends BuySell {
 
     @FXML
     private void updateBalanceLabel() {
-        balanceLabel.setText(String.format("Balance: $%.2f", getAccountBalance()));
+        balanceLabel.setText(String.format("$%.2f", getAccountBalance()));
     }
 
     @Override
@@ -143,5 +166,23 @@ public class TransferMarketController extends BuySell {
             searchPlayers();
         }
         return success;
+    }
+
+    @FXML
+    public void goToSellPlayer(ActionEvent actionEvent) throws IOException {
+        URL resource = getClass().getResource("sellPlayer.fxml");
+        if (resource == null) {
+            System.out.println("Error: sellPlayer.fxml not found in resources!");
+            return;
+        }
+        FXMLLoader loader = new FXMLLoader(resource);
+        Parent root = loader.load();
+        SellPlayerController controller = loader.getController();
+        controller.setUserData(username, userTeam); // Pass user data to SellPlayerController
+        Stage stage = (Stage) playerContainer.getScene().getWindow();
+        Scene scene = new Scene(root, 1215, 600, Color.NAVY); // Fixed from 12150
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
     }
 }
