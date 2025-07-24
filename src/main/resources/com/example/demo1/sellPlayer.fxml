@@ -13,24 +13,34 @@
                 <Image url="@TransferMarket.jpg" />
             </image>
         </ImageView>
-        <Label layoutX="375.0" layoutY="38.0" prefHeight="58.0" prefWidth="481.0" text="My Players" textFill="#7cebff">
+        <Label layoutX="512.0" layoutY="37.0" prefHeight="58.0" prefWidth="205.0" text="My Players" textAlignment="CENTER" textFill="#7cebff">
             <font>
                 <Font name="Fira Code Retina" size="30.0" />
             </font>
         </Label>
-        <ScrollPane fx:id="playerListContainer" hbarPolicy="NEVER" layoutX="263.0" layoutY="160.0" prefHeight="525.0" prefWidth="945.0" style="-fx-background-color: transparent;" vbarPolicy="AS_NEEDED">
+        <ScrollPane hbarPolicy="NEVER" layoutX="263.0" layoutY="97.0" prefHeight="437.0" prefWidth="946.0" style="-fx-background-color: transparent;" vbarPolicy="AS_NEEDED">
             <content>
-                <AnchorPane fx:id="playerContainer" minHeight="340.0" prefHeight="556.0" prefWidth="942.0" style="-fx-background-color: transparent;">
+                <AnchorPane fx:id="playerContainer" minHeight="340.0" prefHeight="438.0" prefWidth="947.0" style="-fx-background-color: transparent;">
                     <padding>
                         <Insets bottom="0.0" left="0.0" right="0.0" top="0.0" />
                     </padding>
                 </AnchorPane>
             </content>
         </ScrollPane>
-        <Button fx:id="backButton" blendMode="HARD_LIGHT" layoutX="1055.0" layoutY="535.0" onAction="#goBack" prefHeight="30.0" prefWidth="88.0" text="Back">
+        <Button fx:id="backButton" blendMode="HARD_LIGHT" layoutX="1055.0" layoutY="535.0" onAction="#switchToTransferMarket" prefHeight="30.0" prefWidth="88.0" text="Back">
             <font>
                 <Font size="14.0" />
             </font>
         </Button>
+        <Label layoutX="47.0" layoutY="276.0" prefHeight="49.0" prefWidth="106.0" text="Your Balance:" textFill="WHITE">
+            <font>
+                <Font name="Georgia" size="17.0" />
+            </font>
+        </Label>
+    <Label fx:id="balanceLabel" alignment="CENTER" layoutX="55.0" layoutY="303.0" prefHeight="50.0" prefWidth="138.0" textAlignment="CENTER" textFill="#85fff8">
+        <font>
+            <Font name="Impact" size="25.0" />
+        </font>
+    </Label>
     </children>
 </AnchorPane>

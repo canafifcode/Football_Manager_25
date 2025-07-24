@@ -23,29 +23,49 @@ public class PlayerCardController extends BuySell {
     @FXML
     private ImageView teamLogoView;
 
-    public void setTeamLogo(String teamName) {
-        String imagePath = "/logos/" + teamName.toLowerCase() + ".png";
-        Image logo = new Image(getClass().getResourceAsStream(imagePath));
-        teamLogoView.setImage(logo);
-        teamLogoView.setStyle("-fx-background-color: transparent;");
-        teamLogoView.setSmooth(true);
-        teamLogoView.setCache(true);
-
-    }
-
     @FXML
     private Label userNameLabel;
 
-    public void setUserName(String userName) {
-        userNameLabel.setText(userName);
+    private String userTeam; // Added to store userTeam
+
+    public void setTeamLogo(String teamName) {
+        if (teamName == null || teamName.trim().isEmpty()) {
+            System.out.println("Error: teamName is null or empty in setTeamLogo");
+            teamLogoView.setImage(null);
+            return;
+        }
+        String imagePath = "/logos/" + teamName.toLowerCase() + ".png";
+        try {
+            Image logo = new Image(getClass().getResourceAsStream(imagePath));
+            teamLogoView.setImage(logo);
+            teamLogoView.setStyle("-fx-background-color: transparent;");
+            teamLogoView.setSmooth(true);
+            teamLogoView.setCache(true);
+        } catch (Exception e) {
+            System.out.println("Error loading logo for team: " + teamName + ", path: " + imagePath);
+            e.printStackTrace();
+        }
     }
 
+    public void setUserName(String userName) {
+        userNameLabel.setText(userName != null ? userName : "Unknown");
+    }
+
+    public void setUserTeam(String userTeam) {
+        this.userTeam = userTeam;
+        System.out.println("setUserTeam called - userTeam: " + userTeam);
+    }
 
     public void loadPlayersForTeam(String teamName) {
+        if (teamName == null || teamName.trim().isEmpty()) {
+            System.out.println("Error: teamName is null or empty in loadPlayersForTeam");
+            return;
+        }
         Player playerLoader = new Player("", "", "", "", null, 0);
         List<Player> players = playerLoader.loadPlayersForTeam(teamName);
 
         if (playerContainer == null) {
+            System.out.println("Error: playerContainer is null");
             return;
         }
 
@@ -67,14 +87,13 @@ public class PlayerCardController extends BuySell {
                 AnchorPane card = loader.load();
                 PlayerCardItemController itemController = loader.getController();
                 itemController.setPlayerData(player);
-
                 AnchorPane.setTopAnchor(card, yOffset);
                 AnchorPane.setLeftAnchor(card, 5.0);
                 playerContainer.getChildren().add(card);
-
                 yOffset += card.getPrefHeight() + 5.0;
             } catch (IOException e) {
                 System.out.println("Error loading playerCard.fxml for player: " + player.getName());
+                e.printStackTrace();
             }
         }
         playerContainer.setPrefHeight(yOffset + 5.0);
@@ -82,7 +101,12 @@ public class PlayerCardController extends BuySell {
 
     @FXML
     public void goBack(javafx.event.ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
+        URL resource = getClass().getResource("home.fxml");
+        if (resource == null) {
+            System.out.println("Error: home.fxml not found in resources!");
+            return;
+        }
+        Parent root = FXMLLoader.load(resource);
         Stage stage = (Stage) playerContainer.getScene().getWindow();
         Scene scene = new Scene(root, 1215, 600, Color.NAVY);
         stage.setScene(scene);
@@ -100,6 +124,7 @@ public class PlayerCardController extends BuySell {
             FXMLLoader loader = new FXMLLoader(resource);
             Parent root = loader.load();
             TransferMarketController transferMarketController = loader.getController();
+            transferMarketController.setUserData(userNameLabel.getText(), userTeam);
             Stage stage = (Stage) playerContainer.getScene().getWindow();
             Scene scene = new Scene(root, 1215, 600, Color.NAVY);
             stage.setScene(scene);

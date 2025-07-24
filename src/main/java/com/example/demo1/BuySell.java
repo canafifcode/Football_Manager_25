@@ -7,7 +7,8 @@ import java.util.Map;
 public class BuySell {
     private Map<String, Player> availablePlayers;
     private Map<String, Player> ownedPlayers;
-    private double accountBalance = 1000.0; // Initial balance
+    private double accountBalance = 10000.0; // Initial balance
+    private String userTeam = "YourTeam";
 
     public BuySell() {
         availablePlayers = new HashMap<>();
@@ -23,6 +24,7 @@ public class BuySell {
                 if (parts.length >= 6) {
                     String league = parts[0].trim();
                     String team = parts[1].trim();
+                    userTeam = team;
                     String name = parts[2].trim();
                     String position = parts[3].trim();
                     int overall = Integer.parseInt(parts[4].trim());
@@ -108,6 +110,38 @@ public class BuySell {
 
     public Map<String, Player> getOwnedPlayers() {
         return ownedPlayers;
+    }
+
+    public void addOwnedPlayer(Player player) {
+        if (!ownedPlayers.containsKey(player.getName())) {
+            ownedPlayers.put(player.getName(), player);
+            System.out.println(player.getName() + " added to owned players.");
+        }
+    }
+
+    public void loadOwnedPlayers() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("owned_players.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length >= 6 && parts[1].trim().equals(userTeam)) {
+                    String name = parts[2].trim();
+                    String position = parts[3].trim();
+                    int overall = Integer.parseInt(parts[4].trim());
+                    Map<String, Integer> stats = new HashMap<>();
+                    for (int i = 5; i < parts.length; i++) {
+                        String[] statParts = parts[i].split(":");
+                        if (statParts.length == 2) {
+                            stats.put(statParts[0].trim(), Integer.parseInt(statParts[1].trim()));
+                        }
+                    }
+                    Player player = new Player(name, position, "League", userTeam, stats, overall);
+                    ownedPlayers.put(name, player);
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error loading owned players: " + e.getMessage());
+        }
     }
 
     public void addAvailablePlayer(Player player) {

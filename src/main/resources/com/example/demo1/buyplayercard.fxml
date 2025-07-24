@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="100.0" prefWidth="600.0" style="-fx-background-color: #97866A;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.PlayerCardItemController">
+    <children>
+        <Label fx:id="nameLabel" layoutX="10.0" layoutY="10.0" text="Player Name" textFill="WHITE" />
+        <Label fx:id="positionLabel" layoutX="10.0" layoutY="30.0" text="Position" textFill="WHITE" />
+        <Label fx:id="overallLabel" layoutX="10.0" layoutY="50.0" text="Overall" textFill="WHITE" />
+        <Label fx:id="statsLabel" layoutX="10.0" layoutY="70.0" text="Stats" textFill="WHITE" />
+        <Button fx:id="sellPlayerButton" layoutX="480.0" layoutY="65.0" onAction="#sellPlayerAction" prefHeight="26.0" prefWidth="110.0" style="-fx-background-color: green;" text="Buy Request" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font></Button>
+    </children>
+    <effect>
+        <Blend />
+    </effect>
+</AnchorPane>

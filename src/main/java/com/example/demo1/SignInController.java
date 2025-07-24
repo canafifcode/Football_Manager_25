@@ -65,6 +65,7 @@ public class SignInController {
         if (matchFound) {
             System.out.println("Sign in successful!");
             logSignIn(username);
+            //setUserData(username, userTeam);
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("players.fxml"));
                 root = loader.load();
@@ -72,6 +73,7 @@ public class SignInController {
                 controller.loadPlayersForTeam(userTeam);
                 controller.setTeamLogo(userTeam);
                 controller.setUserName(username);
+                controller.setUserTeam(userTeam);
                 stage = (Stage) usernameField.getScene().getWindow();
                 scene = new Scene(root, 1215, 600, Color.NAVY);
                 stage.setScene(scene);

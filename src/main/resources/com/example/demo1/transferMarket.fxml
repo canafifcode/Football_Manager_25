@@ -37,7 +37,7 @@
             <Font name="Impact" size="25.0" />
          </font>
       </Label>
-      <Button fx:id="sellButton" blendMode="LIGHTEN" layoutX="530.0" layoutY="188.0" onAction="#goToSellPlayer" prefHeight="30.0" prefWidth="106.0" style="-fx-background-color: RED;" text="SELL PLAYER" textFill="WHITE">
+      <Button fx:id="SellButton" blendMode="LIGHTEN" layoutX="530.0" layoutY="188.0" onAction="#goToSellPlayer" prefHeight="30.0" prefWidth="106.0" style="-fx-background-color: RED;" text="SELL PLAYER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
