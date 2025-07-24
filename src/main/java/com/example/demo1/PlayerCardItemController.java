@@ -37,42 +37,38 @@ public class PlayerCardItemController extends BuySell {
     private static final List<String> GK_STATS = Arrays.asList("Reflexes", "Handling", "Positioning", "Diving", "Kicking");
 
     public void setPlayerData(Player player) {
-        // Validate FXML bindings
-        if (nameLabel == null || positionLabel == null || overallLabel == null || statsLabel == null) {
-            return;
-        }
-
         this.player = player;
 
-        // Set basic player data
-        nameLabel.setText(player.getName() != null ? player.getName() : "Unknown");
-        positionLabel.setText(player.getPosition() != null ? player.getPosition() : "Unknown");
-        overallLabel.setText("Overall: " + player.getOverall());
+        // Defensive: Null check for labels
+        if (nameLabel != null) nameLabel.setText(player.getName() != null ? player.getName() : "Unknown");
+        if (positionLabel != null) positionLabel.setText(player.getPosition() != null ? player.getPosition() : "Unknown");
+        if (overallLabel != null) overallLabel.setText("Overall: " + player.getOverall());
 
-        // Handle stats
+        // Set stats
         Map<String, Integer> stats = player.getStats();
-        if (stats == null || stats.isEmpty()) {
-            statsLabel.setText("Stats: None available");
-        } else {
-            StringBuilder statsText = new StringBuilder("Stats: ");
-            List<String> relevantStats = player.getPosition().equalsIgnoreCase("GK") ? GK_STATS : NON_GK_STATS;
-            boolean hasStats = false;
-            for (String stat : relevantStats) {
-                if (stats.containsKey(stat)) {
-                    statsText.append(stat).append(": ").append(stats.get(stat)).append(", ");
-                    hasStats = true;
-                }
-            }
-            if (hasStats) {
-                // Remove trailing comma and space
-                statsText.setLength(statsText.length() - 2);
-                statsLabel.setText(statsText.toString());
-            } else {
+        if (statsLabel != null) {
+            if (stats == null || stats.isEmpty()) {
                 statsLabel.setText("Stats: None available");
+            } else {
+                StringBuilder statsText = new StringBuilder("Stats: ");
+                List<String> relevantStats = player.getPosition() != null && player.getPosition().equalsIgnoreCase("GK") ? GK_STATS : NON_GK_STATS;
+                boolean hasStats = false;
+                for (String stat : relevantStats) {
+                    if (stats.containsKey(stat)) {
+                        statsText.append(stat).append(": ").append(stats.get(stat)).append(", ");
+                        hasStats = true;
+                    }
+                }
+                if (hasStats) {
+                    statsText.setLength(statsText.length() - 2); // Remove trailing comma and space
+                    statsLabel.setText(statsText.toString());
+                } else {
+                    statsLabel.setText("Stats: None available");
+                }
             }
         }
 
-        // Set team logo
+        // Set team logo if available
         if (teamLogoView != null && player.getTeam() != null && !player.getTeam().isEmpty()) {
             String imagePath = "/logos/" + player.getTeam().toLowerCase() + ".png";
             try {
@@ -82,11 +78,11 @@ public class PlayerCardItemController extends BuySell {
                 teamLogoView.setSmooth(true);
                 teamLogoView.setCache(true);
             } catch (Exception e) {
-                System.out.println("Error loading logo for team: " + player.getTeam() + ", path: " + imagePath);
                 teamLogoView.setImage(null);
             }
         }
     }
+
 
 
     @FXML

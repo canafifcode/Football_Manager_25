@@ -102,9 +102,15 @@ public class TransferMarketController extends BuySell {
 
     private void loadPlayers(ArrayList<Player> players) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("buyPlayerPage.fxml"));
+            URL resource = getClass().getResource("buyPlayerPage.fxml");
+            if (resource == null) {
+                System.out.println("Error: sellPlayer.fxml not found in resources!");
+                return;
+            }
+            FXMLLoader loader = new FXMLLoader(resource);
             Parent buyPlayerRoot = loader.load();
             BuyPlayerController buyPlayerController = loader.getController();
+            buyPlayerController.setUserData(username, userTeam);
 
             VBox playerList = buyPlayerController.playerList;
             playerList.getChildren().clear();

@@ -13,13 +13,11 @@
                 <Image url="@bg.jpg" />
             </image>
         </ImageView>
-        <ScrollPane hbarPolicy="NEVER" layoutX="263.0" layoutY="8.0" prefHeight="525.0" prefWidth="945.0" style="-fx-background-color: transparent;" vbarPolicy="AS_NEEDED">
+        <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="263.0" layoutY="8.0" prefHeight="525.0" prefWidth="946.0" style="-fx-background-color: transparent;" stylesheets="@transparent-scrollpane.css" vbarPolicy="AS_NEEDED">
             <content>
-                <AnchorPane fx:id="playerContainer" minHeight="340.0" prefHeight="525.0" prefWidth="945.0" style="-fx-background-color: transparent;">
-                    <padding>
-                        <Insets bottom="0.0" left="0.0" right="0.0" top="0.0" />
-                    </padding>
-                </AnchorPane>
+                <VBox fx:id="playerContainer" spacing="8" minHeight="340.0" prefHeight="500.0" prefWidth="946.0" style="-fx-background-color: transparent;">
+
+                </VBox>
             </content>
         </ScrollPane>
         <Button blendMode="LIGHTEN" layoutX="1034.0" layoutY="539.0" mnemonicParsing="false" onAction="#goBack" prefHeight="40.0" prefWidth="167.0" style="-fx-background-color: red;" text="Go Back" textFill="WHITE">

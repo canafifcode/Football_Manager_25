@@ -32,9 +32,6 @@ public class SellPlayerController extends BuySell {
     @FXML
     private ImageView teamLogoView;
 
-    @FXML
-    private Label userNameLabel;
-
     public void setUserTeam(String userTeam) {
         this.userTeam = userTeam;
         System.out.println("setUserTeam called - userTeam: " + userTeam);

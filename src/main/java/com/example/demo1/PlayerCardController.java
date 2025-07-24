@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -18,7 +19,7 @@ import java.util.List;
 public class PlayerCardController extends BuySell {
 
     @FXML
-    private AnchorPane playerContainer;
+    private VBox playerContainer;
 
     @FXML
     private ImageView teamLogoView;
