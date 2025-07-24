@@ -4,6 +4,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +28,9 @@ public class PlayerCardItemController extends BuySell {
     @FXML
     private Button sellPlayerButton;
 
+    @FXML
+    private ImageView teamLogoView;
+
     private Player player;
 
     private static final List<String> NON_GK_STATS = Arrays.asList("Pace", "Passing", "Shooting", "Dribbling", "Defending", "Physical");
@@ -35,6 +41,8 @@ public class PlayerCardItemController extends BuySell {
         if (nameLabel == null || positionLabel == null || overallLabel == null || statsLabel == null) {
             return;
         }
+
+        this.player = player;
 
         // Set basic player data
         nameLabel.setText(player.getName() != null ? player.getName() : "Unknown");
@@ -63,7 +71,23 @@ public class PlayerCardItemController extends BuySell {
                 statsLabel.setText("Stats: None available");
             }
         }
+
+        // Set team logo
+        if (teamLogoView != null && player.getTeam() != null && !player.getTeam().isEmpty()) {
+            String imagePath = "/logos/" + player.getTeam().toLowerCase() + ".png";
+            try {
+                Image logo = new Image(getClass().getResourceAsStream(imagePath));
+                teamLogoView.setImage(logo);
+                teamLogoView.setStyle("-fx-background-color: transparent;");
+                teamLogoView.setSmooth(true);
+                teamLogoView.setCache(true);
+            } catch (Exception e) {
+                System.out.println("Error loading logo for team: " + player.getTeam() + ", path: " + imagePath);
+                teamLogoView.setImage(null);
+            }
+        }
     }
+
 
     @FXML
     public void sellPlayerAction(ActionEvent event) {
@@ -88,4 +112,5 @@ public class PlayerCardItemController extends BuySell {
         setPlayerData(player);
         // Set user data if needed for further actions
     }
+
 }

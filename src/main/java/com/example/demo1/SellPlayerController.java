@@ -3,24 +3,22 @@ package com.example.demo1;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 public class SellPlayerController extends BuySell {
 
     @FXML
-    private AnchorPane playerContainer;
+    private ScrollPane scrollPane;
 
     @FXML
-    private ScrollPane scrollPane;
+    private VBox playerList; // <-- Use VBox defined in FXML
 
     @FXML
     private Button backButton;
@@ -31,47 +29,60 @@ public class SellPlayerController extends BuySell {
     private String username;
     private String userTeam;
 
+    @FXML
+    private ImageView teamLogoView;
+
+    @FXML
+    private Label userNameLabel;
+
+    public void setUserTeam(String userTeam) {
+        this.userTeam = userTeam;
+        System.out.println("setUserTeam called - userTeam: " + userTeam);
+    }
+
     public void setUserData(String username, String userTeam) {
         this.username = username;
         this.userTeam = userTeam;
         System.out.println("SellPlayerController.setUserData called - username: " + username + ", userTeam: " + userTeam);
-        if (userTeam != null && !userTeam.trim().isEmpty()) {
-            loadPlayersFromFile(userTeam);
-            setBalanceLabel();
-        }
+        // After user data is set, load the players and update balance
+        loadOwnedPlayers();
+        setBalanceLabel();
     }
 
-    @FXML
-    public void initialize() {
-        System.out.println("SellPlayerController.initialize called - playerContainer: " + playerContainer + ", scene: " + (playerContainer != null ? playerContainer.getScene() : "null"));
-        if (userTeam != null && !userTeam.trim().isEmpty()) {
-            loadPlayersFromFile(userTeam);
-            setBalanceLabel();
-        } else {
-            System.out.println("Warning: userTeam is null or empty during initialize");
-        }
-    }
-
-    private void loadPlayersFromFile(String userTeam) {
-        if (scrollPane == null) {
-            System.out.println("Error: scrollPane is null");
+    // Call this after userTeam is set or upon page load
+    public void loadOwnedPlayers() {
+        if (userTeam == null || userTeam.trim().isEmpty()) {
+            System.out.println("Error: userTeam is null or empty in loadOwnedPlayers");
             return;
         }
-        ArrayList<Player> ownedPlayers = new ArrayList<>(getOwnedPlayers().values()); // Assuming getOwnedPlayers() is defined in BuySell
-        VBox playerList = new VBox(5);
-        scrollPane.setContent(playerList);
+        Player playerLoader = new Player("", "", "", "", null, 0);
+        List<Player> players = playerLoader.loadPlayersForTeam(userTeam);
 
-        if (ownedPlayers.isEmpty()) {
-            Label noPlayersLabel = new Label("No players available to sell for " + userTeam);
+        if (playerList == null) {
+            System.out.println("Error: playerList VBox is null");
+            return;
+        }
+
+        playerList.getChildren().clear();
+
+        if (players.isEmpty()) {
+            Label noPlayersLabel = new Label("No players found for team: " + userTeam);
             noPlayersLabel.setStyle("-fx-text-fill: white; -fx-font-size: 14px;");
             playerList.getChildren().add(noPlayersLabel);
             return;
         }
 
-        for (Player player : ownedPlayers) {
-            Label playerLabel = new Label(player.getName() + " (" + player.getTeam() + ")");
-            playerLabel.setStyle("-fx-text-fill: white; -fx-font-size: 14px;");
-            playerList.getChildren().add(playerLabel);
+        for (Player player : players) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("sellPlayerCard.fxml"));
+                AnchorPane card = loader.load();
+                PlayerCardItemController itemController = loader.getController();
+                itemController.setPlayerData(player, username, userTeam); // Pass user info if needed
+                playerList.getChildren().add(card);
+            } catch (IOException e) {
+                System.out.println("Error loading sellPlayerCard.fxml for player: " + player.getName());
+                e.printStackTrace();
+            }
         }
     }
 
@@ -80,21 +91,17 @@ public class SellPlayerController extends BuySell {
             System.out.println("Error: balanceLabel is null");
             return;
         }
-        double balance = getAccountBalance(); // Assuming getAccountBalance() is defined in BuySell
+        double balance = getAccountBalance();
         balanceLabel.setText(String.format("$%.2f", balance));
     }
 
     @FXML
     public void switchToTransferMarket() throws IOException {
         System.out.println("SellPlayerController.switchToTransferMarket called - username: " + username + ", userTeam: " + userTeam);
-        if (playerContainer == null || playerContainer.getScene() == null) {
-            System.out.println("Error: playerContainer or its scene is null in switchToTransferMarket");
-            return;
-        }
         FXMLLoader loader = new FXMLLoader(getClass().getResource("transferMarket.fxml"));
         Parent root = loader.load();
         TransferMarketController controller = loader.getController();
         controller.setUserData(username, userTeam);
-        playerContainer.getScene().setRoot(root);
+        scrollPane.getScene().setRoot(root);
     }
 }

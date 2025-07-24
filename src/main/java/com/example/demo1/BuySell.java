@@ -13,10 +13,10 @@ public class BuySell {
     public BuySell() {
         availablePlayers = new HashMap<>();
         ownedPlayers = new HashMap<>();
-        loadPlayersFromFile();
+        loadPlayersFromFile(userTeam);
     }
 
-    private void loadPlayersFromFile() {
+    void loadPlayersFromFile(String userTeam) {
         try (BufferedReader reader = new BufferedReader(new FileReader("players.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -24,7 +24,7 @@ public class BuySell {
                 if (parts.length >= 6) {
                     String league = parts[0].trim();
                     String team = parts[1].trim();
-                    userTeam = team;
+                    this.userTeam = team;
                     String name = parts[2].trim();
                     String position = parts[3].trim();
                     int overall = Integer.parseInt(parts[4].trim());

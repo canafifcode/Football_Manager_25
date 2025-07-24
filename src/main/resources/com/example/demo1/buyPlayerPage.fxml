@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="rootPane" prefHeight="600.0" prefWidth="1215.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.BuyPlayerController">
+    <children>
+        <ImageView fitHeight="614.0" fitWidth="1228.0" layoutX="-9.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@buysellbg.jpg" />
+            </image>
+        </ImageView>
+        <Label layoutX="492.0" layoutY="24.0" prefHeight="58.0" prefWidth="216.0" style="-fx-font: fira code retina; -fx-font-size: 26;" text="Searched player(s)" textFill="#05ff48"/>
+        <ScrollPane fx:id="scrollPane" layoutX="120.0" layoutY="100.0" prefHeight="450.0" prefWidth="1000.0" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" stylesheets="@transparent-scrollpane.css">
+            <content>
+                <VBox fx:id="playerList" spacing="8" style="-fx-background-color: transparent;" />
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

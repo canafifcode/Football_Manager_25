@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -100,31 +101,32 @@ public class TransferMarketController extends BuySell {
     }
 
     private void loadPlayers(ArrayList<Player> players) {
-        if (playerContainer == null) {
-            System.out.println("Error: playerContainer is null in loadPlayers");
-            return;
-        }
-        playerContainer.getChildren().clear();
-        if (players.isEmpty()) {
-            System.out.println("No players found for the given criteria.");
-        }
-        double yOffset = 5.0;
-        for (Player player : players) {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("playerCard.fxml"));
-                AnchorPane playerCard = loader.load();
-                PlayerCardItemController itemController = loader.getController();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("buyPlayerPage.fxml"));
+            Parent buyPlayerRoot = loader.load();
+            BuyPlayerController buyPlayerController = loader.getController();
+
+            VBox playerList = buyPlayerController.playerList;
+            playerList.getChildren().clear();
+
+            for (Player player : players) {
+                FXMLLoader cardLoader = new FXMLLoader(getClass().getResource("buyplayercard.fxml"));
+                AnchorPane card = cardLoader.load();
+                PlayerCardItemController itemController = cardLoader.getController();
                 itemController.setPlayerData(player);
-                playerContainer.getChildren().add(playerCard);
-                AnchorPane.setTopAnchor(playerCard, yOffset);
-                AnchorPane.setLeftAnchor(playerCard, 5.0);
-                yOffset += playerCard.getPrefHeight() + 5.0;
-            } catch (IOException e) {
-                System.out.println("Error loading playerCard.fxml for player: " + player.getName());
-                e.printStackTrace();
+                playerList.getChildren().add(card);
             }
+
+            // Show the buyPlayerPage scene
+            Stage stage = (Stage) playerContainer.getScene().getWindow();
+            Scene scene = new Scene(buyPlayerRoot, 1215, 600, Color.TRANSPARENT);
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        playerContainer.setPrefHeight(yOffset + 5.0);
     }
 
     @FXML
