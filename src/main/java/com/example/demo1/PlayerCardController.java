@@ -27,6 +27,9 @@ public class PlayerCardController extends BuySell {
     @FXML
     private Label userNameLabel;
 
+    @FXML
+    private Label statsLabel;
+
     private String userTeam; // Added to store userTeam
 
     public void setTeamLogo(String teamName) {

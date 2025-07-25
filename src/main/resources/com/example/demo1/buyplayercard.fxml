@@ -9,24 +9,23 @@
 <AnchorPane prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: #97866A;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.PlayerCardItemController">
     <children>
         <ImageView fx:id="teamLogoView" fitHeight="85.0" fitWidth="92.0" layoutX="574.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
-        <Label fx:id="nameLabel" layoutX="10.0" layoutY="10.0" prefWidth="102.0" text="Player Name" textFill="WHITE">
-         <font>
-            <Font name="System Bold Italic" size="16.0" />
-         </font></Label>
-        <Label fx:id="positionLabel" layoutX="10.0" layoutY="30.0" prefHeight="26.0" prefWidth="79.0" text="Position" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
-        <Label fx:id="overallLabel" layoutX="10.0" layoutY="50.0" prefHeight="26.0" prefWidth="102.0" text="Overall" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
-
-        <Label fx:id="statsLabel" layoutX="10.0" layoutY="70.0" prefHeight="26.0" prefWidth="558.0" text="Stats" textFill="WHITE" />
-        <Button fx:id="sellPlayerButton" layoutX="666.0" layoutY="55.0" onAction="#sellPlayerAction" prefHeight="26.0" prefWidth="110.0" style="-fx-background-color: green;" text="Buy Request" textFill="WHITE">
+        <Label fx:id="nameLabel" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="189.0" text="Player Name" textFill="WHITE">
+            <font>
+                <Font name="System Bold Italic" size="18.0" />
+            </font></Label>
+        <Label fx:id="positionLabel" layoutX="10.0" layoutY="36.0" prefHeight="26.0" prefWidth="79.0" text="Position" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font></Label>
+        <Label fx:id="overallLabel" layoutX="10.0" layoutY="62.0" prefHeight="26.0" prefWidth="102.0" text="Overall" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font></Label>
+        <Button fx:id="buyPlayerButton" layoutX="666.0" layoutY="55.0" onAction="#buyPlayerAction" prefHeight="26.0" prefWidth="110.0" style="-fx-background-color: green;" text="Buy Player" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="14.0" />
-            </font></Button>
+            </font>
+        </Button>
     </children>
     <effect>
         <Blend />

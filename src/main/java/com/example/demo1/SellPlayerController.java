@@ -46,7 +46,6 @@ public class SellPlayerController extends BuySell {
         setBalanceLabel();
     }
 
-    // Call this after userTeam is set or upon page load
     public void loadOwnedPlayers() {
         if (userTeam == null || userTeam.trim().isEmpty()) {
             System.out.println("Error: userTeam is null or empty in loadOwnedPlayers");

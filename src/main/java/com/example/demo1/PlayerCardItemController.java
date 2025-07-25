@@ -29,6 +29,9 @@ public class PlayerCardItemController extends BuySell {
     private Button sellPlayerButton;
 
     @FXML
+    private Button buyPlayerButton;
+
+    @FXML
     private ImageView teamLogoView;
 
     private Player player;
@@ -39,12 +42,10 @@ public class PlayerCardItemController extends BuySell {
     public void setPlayerData(Player player) {
         this.player = player;
 
-        // Defensive: Null check for labels
         if (nameLabel != null) nameLabel.setText(player.getName() != null ? player.getName() : "Unknown");
         if (positionLabel != null) positionLabel.setText(player.getPosition() != null ? player.getPosition() : "Unknown");
         if (overallLabel != null) overallLabel.setText("Overall: " + player.getOverall());
 
-        // Set stats
         Map<String, Integer> stats = player.getStats();
         if (statsLabel != null) {
             if (stats == null || stats.isEmpty()) {
@@ -60,12 +61,13 @@ public class PlayerCardItemController extends BuySell {
                     }
                 }
                 if (hasStats) {
-                    statsText.setLength(statsText.length() - 2); // Remove trailing comma and space
+                    statsText.setLength(statsText.length() - 2);
                     statsLabel.setText(statsText.toString());
                 } else {
                     statsLabel.setText("Stats: None available");
                 }
             }
+           // System.out.println("Buy card stats label set to: " + statsLabel.getText());
         }
 
         // Set team logo if available
@@ -109,4 +111,25 @@ public class PlayerCardItemController extends BuySell {
         // Set user data if needed for further actions
     }
 
+    @FXML
+    public void buyPlayerAction(ActionEvent event) {
+        if (player == null) return;
+
+        // Example: manager info (replace with your actual logic)
+        String managerHost = "localhost";
+        int managerPort = 5000;
+
+        String buyMessage = String.format("Request to buy %s from %s by %s",
+                player.getName(), player.getTeam(), "YourTeamOrUsername");
+
+        boolean success = BuyRequestClient.sendBuyRequest(managerHost, managerPort, buyMessage);
+
+        if (success) {
+            buyPlayerButton.setDisable(true);
+            buyPlayerButton.setText("Requested");
+            System.out.println("Buy request sent!");
+        } else {
+            System.out.println("Failed to send buy request.");
+        }
+    }
 }

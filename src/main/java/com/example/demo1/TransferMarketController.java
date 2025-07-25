@@ -73,7 +73,8 @@ public class TransferMarketController extends BuySell {
         String league = leagueComboBox.getValue();
         String position = positionComboBox.getValue();
 
-        ArrayList<Player> filteredPlayers = new ArrayList<>();
+        ArrayList<Player> filteredPlayers = new ArrayList<>(); // now local
+
         for (Player player : getAvailablePlayers().values()) {
             boolean matches = true;
             if (!name.isEmpty() && !player.getName().toLowerCase().contains(name)) {
@@ -93,18 +94,18 @@ public class TransferMarketController extends BuySell {
             }
         }
 
-        loadPlayers(filteredPlayers);
+        loadPlayers(filteredPlayers); // <-- pass as argument
     }
 
     public void handleButtonClick(ActionEvent event) {
         System.out.println("Button clicked!");
     }
 
-    private void loadPlayers(ArrayList<Player> players) {
+    private void loadPlayers(ArrayList<Player> players) { // use argument!
         try {
             URL resource = getClass().getResource("buyPlayerPage.fxml");
             if (resource == null) {
-                System.out.println("Error: sellPlayer.fxml not found in resources!");
+                System.out.println("Error: buyPlayerPage.fxml not found in resources!");
                 return;
             }
             FXMLLoader loader = new FXMLLoader(resource);
@@ -119,7 +120,7 @@ public class TransferMarketController extends BuySell {
                 FXMLLoader cardLoader = new FXMLLoader(getClass().getResource("buyplayercard.fxml"));
                 AnchorPane card = cardLoader.load();
                 PlayerCardItemController itemController = cardLoader.getController();
-                itemController.setPlayerData(player);
+                itemController.setPlayerData(player, username, userTeam);
                 playerList.getChildren().add(card);
             }
 
@@ -134,6 +135,7 @@ public class TransferMarketController extends BuySell {
             e.printStackTrace();
         }
     }
+
 
     @FXML
     public void goBack(ActionEvent actionEvent) throws IOException {
