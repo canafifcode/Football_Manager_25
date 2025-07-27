@@ -59,7 +59,7 @@ public class Player {
 
     public List<Player> loadPlayersForTeam(String teamName) {
         List<Player> players = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader("D:/BUET Files/1-2/OOP/football-main/Football_Manager-main/players.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("players.txt"))) {
             String line;
             int lineNumber = 0;
             while ((line = reader.readLine()) != null) {

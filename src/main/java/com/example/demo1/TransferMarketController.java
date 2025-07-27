@@ -62,7 +62,7 @@ public class TransferMarketController extends BuySell {
     public void initialize() {
         System.out.println("TransferMarketController.initialize called - playerContainer: " + playerContainer);
         leagueComboBox.getItems().addAll("Premier League", "La Liga", "Bundesliga", "Serie A", "Ligue 1");
-        positionComboBox.getItems().addAll("Goalkeeper", "Defender", "Midfielder", "Forward");
+        positionComboBox.getItems().addAll("GK", "Defender", "Midfielder", "Forward");
         balanceLabel.setText(String.format("$%.2f", getAccountBalance()));
     }
 

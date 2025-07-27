@@ -211,17 +211,17 @@ Bundesliga,Bayer Leverkusen,Hofmann,Midfielder,77,Pace:78;Passing:82;Shooting:75
 Bundesliga,Bayer Leverkusen,Boniface,Forward,79,Pace:82;Passing:75;Shooting:85;Dribbling:80;Defending:60;Physical:80
 Bundesliga,Bayer Leverkusen,Schick,Forward,78,Pace:80;Passing:75;Shooting:85;Dribbling:78;Defending:60;Physical:80
 Bundesliga,Bayer Leverkusen,Adli,Forward,78,Pace:85;Passing:78;Shooting:80;Dribbling:82;Defending:60;Physical:75
-MLS,Inter Miami CF,Callender,GK,79,Reflexes:82;Handling:80;Positioning:78;Diving:82;Kicking:75
-MLS,Inter Miami CF,Weigandt,Defender,75,Pace:78;Passing:75;Shooting:60;Dribbling:70;Defending:80;Physical:78
-MLS,Inter Miami CF,Alba,Defender,77,Pace:80;Passing:82;Shooting:65;Dribbling:78;Defending:80;Physical:75
-MLS,Inter Miami CF,Aviles,Defender,73,Pace:75;Passing:70;Shooting:60;Dribbling:65;Defending:80;Physical:78
-MLS,Inter Miami CF,Falcon,Defender,73,Pace:70;Passing:70;Shooting:60;Dribbling:65;Defending:80;Physical:80
-MLS,Inter Miami CF,Busquets,Midfielder,78,Pace:65;Passing:90;Shooting:65;Dribbling:75;Defending:80;Physical:75
-MLS,Inter Miami CF,Redondo,Midfielder,77,Pace:78;Passing:82;Shooting:70;Dribbling:80;Defending:75;Physical:75
-MLS,Inter Miami CF,Cremaschi,Midfielder,75,Pace:80;Passing:78;Shooting:70;Dribbling:78;Defending:70;Physical:75
-MLS,Inter Miami CF,Messi,Forward,87,Pace:80;Passing:90;Shooting:92;Dribbling:95;Defending:60;Physical:70
-MLS,Inter Miami CF,Suarez,Forward,78,Pace:75;Passing:78;Shooting:90;Dribbling:80;Defending:60;Physical:80
-MLS,Inter Miami CF,Allende,Forward,76,Pace:80;Passing:75;Shooting:80;Dribbling:80;Defending:60;Physical:75
+MLS,Inter Miami,Callender,GK,79,Reflexes:82;Handling:80;Positioning:78;Diving:82;Kicking:75
+MLS,Inter Miami,Weigandt,Defender,75,Pace:78;Passing:75;Shooting:60;Dribbling:70;Defending:80;Physical:78
+MLS,Inter Miami,Alba,Defender,77,Pace:80;Passing:82;Shooting:65;Dribbling:78;Defending:80;Physical:75
+MLS,Inter Miami,Aviles,Defender,73,Pace:75;Passing:70;Shooting:60;Dribbling:65;Defending:80;Physical:78
+MLS,Inter Miami,Falcon,Defender,73,Pace:70;Passing:70;Shooting:60;Dribbling:65;Defending:80;Physical:80
+MLS,Inter Miami,Busquets,Midfielder,78,Pace:65;Passing:90;Shooting:65;Dribbling:75;Defending:80;Physical:75
+MLS,Inter Miami,Redondo,Midfielder,77,Pace:78;Passing:82;Shooting:70;Dribbling:80;Defending:75;Physical:75
+MLS,Inter Miami,Cremaschi,Midfielder,75,Pace:80;Passing:78;Shooting:70;Dribbling:78;Defending:70;Physical:75
+MLS,Inter Miami,Messi,Forward,87,Pace:80;Passing:90;Shooting:92;Dribbling:95;Defending:60;Physical:70
+MLS,Inter Miami,Suarez,Forward,78,Pace:75;Passing:78;Shooting:90;Dribbling:80;Defending:60;Physical:80
+MLS,Inter Miami,Allende,Forward,76,Pace:80;Passing:75;Shooting:80;Dribbling:80;Defending:60;Physical:75
 MLS,Philadelphia Union,Blake,GK,79,Reflexes:82;Handling:80;Positioning:78;Diving:82;Kicking:75
 MLS,Philadelphia Union,Glesnes,Defender,73,Pace:70;Passing:70;Shooting:60;Dribbling:65;Defending:80;Physical:80
 MLS,Philadelphia Union,Glavinovich,Defender,72,Pace:70;Passing:70;Shooting:60;Dribbling:65;Defending:80;Physical:78
