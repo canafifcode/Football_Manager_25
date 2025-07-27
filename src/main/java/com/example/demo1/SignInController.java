@@ -65,6 +65,8 @@ public class SignInController {
         if (matchFound) {
             System.out.println("Sign in successful!");
             logSignIn(username);
+            BuySell.createOrResetOwnedPlayersFile(username, userTeam);
+            
             //setUserData(username, userTeam);
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("players.fxml"));

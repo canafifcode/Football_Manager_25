@@ -10,10 +10,10 @@
    <children>
       <ImageView fitHeight="600.0" fitWidth="1215.0">
          <image>
-            <Image url="@bghome.jpg" />
+            <Image url="@bgfinal.png" />
          </image>
       </ImageView>
-      <Button layoutX="475.0" layoutY="362.0" mnemonicParsing="false" onAction="#switchToScene2" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: orange;" text="Sign In" textFill="#efff43">
+      <Button layoutX="503.0" layoutY="300.0" mnemonicParsing="false" onAction="#switchToScene2" prefHeight="1.0" prefWidth="143.0" text="Sign In" textFill="#c40000">
          <font>
             <Font name="Arial Black" size="18.0" />
          </font>
@@ -21,7 +21,7 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </Button>
-      <Button layoutX="475.0" layoutY="419.0" mnemonicParsing="false" onAction="#switchToSignUp" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: orange;" text="Sign Up" textFill="#efff43">
+      <Button layoutX="503.0" layoutY="366.0" mnemonicParsing="false" onAction="#switchToSignUp" prefHeight="48.0" prefWidth="143.0" text="Sign Up" textFill="#a6393c">
          <font>
             <Font name="Arial Black" size="18.0" />
          </font>
@@ -29,5 +29,10 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </Button>
+      <Label layoutX="324.0" layoutY="219.0" text="Welcome to Football Manager-2025" textFill="WHITE">
+         <font>
+            <Font name="ArtifaktElement-Medium" size="30.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -33,7 +33,7 @@ public class BuyPlayerController extends BuySell{
         this.userTeam = userTeam;
         System.out.println("SellPlayerController.setUserData called - username: " + username + ", userTeam: " + userTeam);
         // After user data is set, load the players and update balance
-        loadOwnedPlayers();
+        loadOwnedPlayers(userTeam,username);
         setBalanceLabel();
     }
 

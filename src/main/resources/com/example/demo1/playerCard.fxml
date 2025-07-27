@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="139.0" prefWidth="953.0" style="-fx-background-color: #5E936C; -fx-border-color: white;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.PlayerCardItemController">
+<AnchorPane opacity="0.95" prefHeight="139.0" prefWidth="953.0" style="-fx-background-color: #5E936C; -fx-border-color: white;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.PlayerCardItemController">
     <children>
         <Label fx:id="nameLabel" layoutX="10.0" layoutY="14.0" prefHeight="25.0" prefWidth="200.0" text="Name" textFill="WHITE">
             <font>

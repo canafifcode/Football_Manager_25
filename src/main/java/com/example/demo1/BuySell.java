@@ -119,8 +119,30 @@ public class BuySell {
         }
     }
 
-    public void loadOwnedPlayers() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("owned_players.txt"))) {
+
+    public static void createOrResetOwnedPlayersFile(String username, String userTeam) {
+        String fileName = "owned_players_" + userTeam +"_" +username+ ".txt";
+        try (
+                BufferedReader reader = new BufferedReader(new FileReader("players.txt"));
+                FileWriter writer = new FileWriter(fileName, false) // 'false' = overwrite mode
+        ) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length >= 6 && parts[1].trim().equals(userTeam)) {
+                    writer.write(line + System.lineSeparator());
+                }
+            }
+            System.out.println(fileName + " is ready (created/overwritten with owned players).");
+        } catch (IOException e) {
+            System.out.println("Error creating/overwriting " + fileName + ": " + e.getMessage());
+        }
+    }
+
+
+    public void loadOwnedPlayers(String username, String userTeam) {
+        String fileName = "owned_players_" + userTeam +"_" +username+ ".txt";
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
