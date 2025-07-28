@@ -1,5 +1,6 @@
-package com.example.demo1;
+package com.example.fm25.controller;
 
+import com.example.fm25.Loader.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +21,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
-public class Signup implements Initializable {
+public class SignupController implements Initializable {
     @FXML
     private TextField usernameField;
     @FXML

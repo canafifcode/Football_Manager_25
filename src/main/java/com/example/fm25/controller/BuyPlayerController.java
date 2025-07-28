@@ -1,5 +1,7 @@
-package com.example.demo1;
+package com.example.fm25.controller;
 
+import com.example.fm25.Loader.BuySell;
+import com.example.fm25.controller.TransferMarketController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,7 +11,7 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
-public class BuyPlayerController extends BuySell{
+public class BuyPlayerController extends BuySell {
 
     private String userTeam;
     private String username;
