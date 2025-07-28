@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: #97866A;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fm25.PlayerCardItemController">
+<AnchorPane prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: #97866A;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fm25.controller.PlayerCardItemController">
     <children>
         <ImageView fx:id="teamLogoView" fitHeight="85.0" fitWidth="92.0" layoutX="574.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
         <Label fx:id="nameLabel" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="189.0" text="Player Name" textFill="WHITE">
