@@ -83,7 +83,7 @@ public class SignupController implements Initializable {
         saveUserToFile(newUser);
         System.out.println("User Signed Up: " + newUser);
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/fm25/home.fxml"));
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root, 1215, 600, Color.NAVY);
             stage.setScene(scene);
@@ -133,7 +133,7 @@ public class SignupController implements Initializable {
 
     @FXML
     public void goBack(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/fm25/home.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root, 1215, 600, Color.NAVY);
         stage.setScene(scene);

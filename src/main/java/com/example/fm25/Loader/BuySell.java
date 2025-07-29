@@ -44,7 +44,7 @@ public class BuySell {
         }
     }
 
-    public boolean buyPlayer(PlayerLoader player) {
+    public synchronized boolean buyPlayer(PlayerLoader player) {
         double price = calculatePrice(player.getOverall());
         if (availablePlayers.containsKey(player.getName()) && !ownedPlayers.containsKey(player.getName()) && accountBalance >= price) {
             accountBalance -= price;
@@ -58,7 +58,7 @@ public class BuySell {
         return false;
     }
 
-    public boolean sellPlayer(PlayerLoader player) {
+    public synchronized boolean sellPlayer(PlayerLoader player) {
         if (ownedPlayers.containsKey(player.getName())) {
             ownedPlayers.remove(player.getName());
             availablePlayers.put(player.getName(), player);

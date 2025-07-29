@@ -1,8 +1,9 @@
 package com.example.fm25.controller;
 
+import com.example.fm25.BuyRequestClient;
 import com.example.fm25.Loader.BuySell;
 import com.example.fm25.Loader.PlayerLoader;
-import com.example.fm25.controller.BuyPlayerController;
+import com.example.fm25.NetworkContext;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +18,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -25,48 +27,52 @@ public class TransferMarketController extends BuySell {
     private Scene scene;
     private Parent root;
 
-    String username;
-    String userTeam;
+    private String username;
+    private String userTeam;
+    private BuyRequestClient client;
 
     @FXML
     private TextField nameField;
-
     @FXML
     private TextField clubField;
-
     @FXML
     private ComboBox<String> leagueComboBox;
-
     @FXML
     private ComboBox<String> positionComboBox;
-
     @FXML
     private Button searchButton;
-
     @FXML
     private Button sellButton;
-
     @FXML
     private Button backButton;
-
     @FXML
     private Label balanceLabel;
-
     @FXML
     private AnchorPane playerContainer;
+    @FXML
+    private Button TransferListButton;
 
     public void setUserData(String username, String userTeam) {
         this.username = username;
         this.userTeam = userTeam;
         System.out.println("TransferMarketController.setUserData called - username: " + username + ", userTeam: " + userTeam);
+        this.client = NetworkContext.getClient();
+        updateBalanceLabel();
     }
 
     @FXML
     public void initialize() {
+        Socket socket = NetworkContext.getSocket();
+        if (socket == null || !socket.isConnected()) {
+            displayError("Socket connection is not established. Please try again later.");
+            return;
+        }
         System.out.println("TransferMarketController.initialize called - playerContainer: " + playerContainer);
-        leagueComboBox.getItems().addAll("Premier League", "La Liga", "Bundesliga", "Serie A", "Ligue 1");
+        leagueComboBox.getItems().addAll("Premier League", "La Liga", "Bundesliga", "Saudi Pro League", "Ligue 1","MLS");
         positionComboBox.getItems().addAll("GK", "Defender", "Midfielder", "Forward");
-        balanceLabel.setText(String.format("$%.2f", getAccountBalance()));
+        if (balanceLabel != null) {
+            balanceLabel.setText(String.format("$%.2f", getAccountBalance()));
+        }
     }
 
     @FXML
@@ -76,7 +82,7 @@ public class TransferMarketController extends BuySell {
         String league = leagueComboBox.getValue();
         String position = positionComboBox.getValue();
 
-        ArrayList<PlayerLoader> filteredPlayers = new ArrayList<>(); // now local
+        ArrayList<PlayerLoader> filteredPlayers = new ArrayList<>();
 
         for (PlayerLoader player : getAvailablePlayers().values()) {
             boolean matches = true;
@@ -96,19 +102,19 @@ public class TransferMarketController extends BuySell {
                 filteredPlayers.add(player);
             }
         }
-
-        loadPlayers(filteredPlayers); // <-- pass as argument
+        loadPlayers(filteredPlayers);
     }
 
     public void handleButtonClick(ActionEvent event) {
         System.out.println("Button clicked!");
     }
 
-    private void loadPlayers(ArrayList<PlayerLoader> players) { // use argument!
+    private void loadPlayers(ArrayList<PlayerLoader> players) {
         try {
-            URL resource = getClass().getResource("buyPlayerPage.fxml");
+            URL resource = getClass().getResource("/com/example/fm25/buyPlayerPage.fxml");
             if (resource == null) {
                 System.out.println("Error: buyPlayerPage.fxml not found in resources!");
+                displayError("Unable to load player list. Resource not found.");
                 return;
             }
             FXMLLoader loader = new FXMLLoader(resource);
@@ -120,14 +126,18 @@ public class TransferMarketController extends BuySell {
             playerList.getChildren().clear();
 
             for (PlayerLoader player : players) {
-                FXMLLoader cardLoader = new FXMLLoader(getClass().getResource("buyplayercard.fxml"));
+                FXMLLoader cardLoader = new FXMLLoader(getClass().getResource("/com/example/fm25/buyplayercard.fxml"));
+                if (cardLoader.getLocation() == null) {
+                    System.out.println("Error: buyplayercard.fxml not found in resources!");
+                    displayError("Unable to load player card. Resource not found.");
+                    return;
+                }
                 AnchorPane card = cardLoader.load();
                 PlayerCardItemController itemController = cardLoader.getController();
-                itemController.setPlayerData(player, username, userTeam);
+                itemController.setPlayerData(player, username, userTeam, client);
                 playerList.getChildren().add(card);
             }
 
-            // Show the buyPlayerPage scene
             Stage stage = (Stage) playerContainer.getScene().getWindow();
             Scene scene = new Scene(buyPlayerRoot, 1215, 600, Color.TRANSPARENT);
             stage.setScene(scene);
@@ -135,33 +145,38 @@ public class TransferMarketController extends BuySell {
             stage.show();
 
         } catch (Exception e) {
+            System.out.println("Error loading buyPlayerPage.fxml: " + e.getMessage());
             e.printStackTrace();
+            displayError("Unable to load player list: " + e.getMessage());
         }
     }
 
+    private void displayError(String message) {
+        Label errorLabel = new Label(message);
+        errorLabel.setStyle("-fx-text-fill: red; -fx-font-size: 14px;");
+        if (playerContainer != null) {
+            playerContainer.getChildren().clear();
+            playerContainer.getChildren().add(errorLabel);
+        } else {
+            System.out.println("Error: playerContainer is null, cannot display error message");
+        }
+    }
 
     @FXML
     public void goBack(ActionEvent actionEvent) throws IOException {
-        System.out.println("TransferMarketController.goBack called - username: " + username + ", userTeam: " + userTeam);
-        System.out.println("playerContainer: " + playerContainer + ", scene: " + (playerContainer != null ? playerContainer.getScene() : "null"));
+        System.out.println("TransferMarketController.goBack called by " + username);
+        if (client != null) {
+            //client.close();
+        }
         if (playerContainer == null || playerContainer.getScene() == null) {
             System.out.println("Error: playerContainer or its scene is null");
-            Label errorLabel = new Label("Error: Unable to navigate back due to UI initialization issue.");
-            errorLabel.setStyle("-fx-text-fill: white; -fx-font-size: 14px;");
-            AnchorPane errorPane = new AnchorPane(errorLabel);
-            AnchorPane.setTopAnchor(errorLabel, 5.0);
-            AnchorPane.setLeftAnchor(errorLabel, 5.0);
-            Scene errorScene = new Scene(errorPane, 1215, 600, Color.NAVY);
-            // Fallback to get the stage from the event source if possible
-            Stage stage = (Stage) ((actionEvent.getSource() instanceof Button) ? ((Button) actionEvent.getSource()).getScene().getWindow() : new Stage());
-            stage.setScene(errorScene);
-            stage.setResizable(false);
-            stage.show();
+            displayError("Unable to navigate back due to UI initialization issue.");
             return;
         }
-        URL resource = getClass().getResource("players.fxml");
+        URL resource = getClass().getResource("/com/example/fm25/players.fxml");
         if (resource == null) {
             System.out.println("Error: players.fxml not found in resources!");
+            displayError("Unable to navigate back. Resource not found.");
             return;
         }
         FXMLLoader loader = new FXMLLoader(resource);
@@ -173,16 +188,7 @@ public class TransferMarketController extends BuySell {
             controller.setTeamLogo(userTeam);
         } else {
             System.out.println("Error: userTeam is null or empty, cannot load team players or logo");
-            Label errorLabel = new Label("No team selected. Please select a team.");
-            errorLabel.setStyle("-fx-text-fill: white; -fx-font-size: 14px;");
-            AnchorPane errorPane = new AnchorPane(errorLabel);
-            AnchorPane.setTopAnchor(errorLabel, 5.0);
-            AnchorPane.setLeftAnchor(errorLabel, 5.0);
-            Scene scene = new Scene(errorPane, 1215, 600, Color.NAVY);
-            Stage stage = (Stage) playerContainer.getScene().getWindow();
-            stage.setScene(scene);
-            stage.setResizable(false);
-            stage.show();
+            displayError("No team selected. Please select a team.");
             return;
         }
         controller.setUserName(username != null ? username : "Unknown");
@@ -205,7 +211,9 @@ public class TransferMarketController extends BuySell {
 
     @FXML
     public void updateBalanceLabel() {
-        balanceLabel.setText(String.format("$%.2f", getAccountBalance()));
+        if (balanceLabel != null) {
+            balanceLabel.setText(String.format("$%.2f", getAccountBalance()));
+        }
     }
 
     @Override
@@ -220,15 +228,38 @@ public class TransferMarketController extends BuySell {
 
     @FXML
     public void goToSellPlayer(ActionEvent actionEvent) throws IOException {
-        System.out.println("TransferMarketController.goToSellPlayer called - username: " + username + ", userTeam: " + userTeam);
-        URL resource = getClass().getResource("sellPlayer.fxml");
+        System.out.println("TransferMarketController.goToSellPlayer called by " + username);
+        // Do NOT close the socket here!
+        // Just close the BuyRequestClient (thread/streams)
+        if (client != null) {
+           // client.close();
+        }
+        URL resource = getClass().getResource("/com/example/fm25/sellPlayer.fxml");
         if (resource == null) {
             System.out.println("Error: sellPlayer.fxml not found in resources!");
+            displayError("Unable to load sell player page. Resource not found.");
             return;
         }
         FXMLLoader loader = new FXMLLoader(resource);
         Parent root = loader.load();
         SellPlayerController controller = loader.getController();
+        controller.setUserData(username, userTeam);
+        Stage stage = (Stage) playerContainer.getScene().getWindow();
+        Scene scene = new Scene(root, 1215, 600, Color.NAVY);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
+
+    public void goToTransferList(ActionEvent actionEvent) throws IOException {
+        URL resource = getClass().getResource("/com/example/fm25/transfer_listed.fxml");
+        if (resource == null) {
+            System.out.println("Error: transfer_listed.fxml not found in resources!");
+            displayError("Unable to load transfer list page. Resource not found.");
+            return;
+        }
+        FXMLLoader loader = new FXMLLoader(resource);
+        com.example.fm25.controller.TransferListController controller = loader.getController();
         controller.setUserData(username, userTeam);
         Stage stage = (Stage) playerContainer.getScene().getWindow();
         Scene scene = new Scene(root, 1215, 600, Color.NAVY);

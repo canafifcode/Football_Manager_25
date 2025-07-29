@@ -19,7 +19,7 @@ public class OpenPageController {
 
     @FXML
     public void switchToScene1(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("home.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/com/example/fm25/home.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, 1215, 600, Color.NAVY);
         stage.setScene(scene);
@@ -29,7 +29,7 @@ public class OpenPageController {
 
     @FXML
     public void switchToScene2(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("signIn.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/com/example/fm25/signIn.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, 1215, 600, Color.NAVY);
         stage.setScene(scene);
@@ -40,12 +40,12 @@ public class OpenPageController {
     @FXML
     public void switchToSignUp(ActionEvent event) {
         try {
-            URL fxmlLocation = getClass().getResource("signup.fxml");
+            URL fxmlLocation = getClass().getResource("/com/example/fm25/signup.fxml");
             if (fxmlLocation == null) {
                 System.out.println("signup.fxml not found!");
                 return;
             }
-            URL imageLocation = getClass().getResource("bg.jpg");
+            URL imageLocation = getClass().getResource("/com/example/fm25/bg.jpg");
             if (imageLocation == null) {
                 System.out.println("bg.jpg not found!");
                 return;
@@ -63,7 +63,7 @@ public class OpenPageController {
 
     @FXML
     public void goBack(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("home.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/com/example/fm25/home.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, 1215, 600, Color.NAVY);
         stage.setScene(scene);

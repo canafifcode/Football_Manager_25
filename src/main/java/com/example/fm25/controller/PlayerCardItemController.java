@@ -3,10 +3,9 @@ package com.example.fm25.controller;
 import com.example.fm25.BuyRequestClient;
 import com.example.fm25.Loader.BuySell;
 import com.example.fm25.Loader.PlayerLoader;
-import com.example.fm25.Loader.PlayerLoader;
-import com.example.fm25.controller.SellPlayerController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -40,9 +39,20 @@ public class PlayerCardItemController extends BuySell {
     private ImageView teamLogoView;
 
     private PlayerLoader player;
+    private String username;
+    private String userTeam;
+    private BuyRequestClient client;
 
     private static final List<String> NON_GK_STATS = Arrays.asList("Pace", "Passing", "Shooting", "Dribbling", "Defending", "Physical");
     private static final List<String> GK_STATS = Arrays.asList("Reflexes", "Handling", "Positioning", "Diving", "Kicking");
+
+    public void setPlayerData(PlayerLoader player, String username, String userTeam, BuyRequestClient client) {
+        this.player = player;
+        this.username = username;
+        this.userTeam = userTeam;
+        this.client = client;
+        setPlayerData(player);
+    }
 
     public void setPlayerData(PlayerLoader player) {
         this.player = player;
@@ -72,10 +82,8 @@ public class PlayerCardItemController extends BuySell {
                     statsLabel.setText("Stats: None available");
                 }
             }
-           // System.out.println("Buy card stats label set to: " + statsLabel.getText());
         }
 
-        // Set team logo if available
         if (teamLogoView != null && player.getTeam() != null && !player.getTeam().isEmpty()) {
             String imagePath = "/logos/" + player.getTeam().toLowerCase() + ".png";
             try {
@@ -90,51 +98,63 @@ public class PlayerCardItemController extends BuySell {
         }
     }
 
+    @FXML
+    public void buyPlayerAction(ActionEvent event) {
+        if (player == null || username == null || userTeam == null || client == null) {
+            System.out.println("Error: Player, username, userTeam, or client is null");
+            return;
+        }
 
+        String buyMessage = String.format("Request to buy %s from %s by %s", player.getName(), player.getTeam(), username);
+        boolean success = client.sendBuyRequest(buyMessage);
+        if (success) {
+            buyPlayerButton.setDisable(true);
+            buyPlayerButton.setText("Bought");
+            System.out.println("Buy request successful for " + player.getName());
+            refreshParentController();
+        } else {
+            System.out.println("Failed to buy " + player.getName());
+        }
+    }
 
     @FXML
     public void sellPlayerAction(ActionEvent event) {
-        if (player == null) {
-            System.out.println("Error: No player selected for selling");
+        if (player == null || username == null || userTeam == null || client == null) {
+            System.out.println("Error: Player, username, userTeam, or client is null");
             return;
         }
-        boolean success = sellPlayer(player);
+
+        String sellMessage = String.format("Request to sell %s from %s by %s", player.getName(), userTeam, username);
+        boolean success = client.sendBuyRequest(sellMessage);
         if (success) {
-            System.out.println("Player " + player.getName() + " sold successfully");
-            // Optionally refresh the UI by reloading players
-            if (sellPlayerButton.getScene().getRoot().getUserData() instanceof SellPlayerController controller) {
-                controller.loadOwnedPlayers();
-            }
+            sellPlayerButton.setDisable(true);
+            sellPlayerButton.setText("Sold");
+            System.out.println("Sell request successful for " + player.getName());
+            refreshParentController();
         } else {
-            System.out.println("Failed to sell player " + player.getName());
+            System.out.println("Failed to sell " + player.getName());
         }
     }
 
-    public void setPlayerData(PlayerLoader player, String username, String userTeam) {
-        this.player = player;
-        setPlayerData(player);
-        // Set user data if needed for further actions
-    }
-
-    @FXML
-    public void buyPlayerAction(ActionEvent event) {
-        if (player == null) return;
-
-        // Example: manager info (replace with your actual logic)
-        String managerHost = "localhost";
-        int managerPort = 5000;
-
-        String buyMessage = String.format("Request to buy %s from %s by %s",
-                player.getName(), player.getTeam(), "YourTeamOrUsername");
-
-        boolean success = BuyRequestClient.sendBuyRequest(managerHost, managerPort, buyMessage);
-
-        if (success) {
-            buyPlayerButton.setDisable(true);
-            buyPlayerButton.setText("Requested");
-            System.out.println("Buy request sent!");
+    private void refreshParentController() {
+        Object controller = sellPlayerButton.getScene().getRoot().getUserData();
+        if (controller instanceof SellPlayerController sellController) {
+            sellController.loadOwnedPlayers();
+            sellController.setBalanceLabel();
+        } else if (controller instanceof BuyPlayerController buyController) {
+            buyController.loadOwnedPlayers(username, userTeam);
+            buyController.setBalanceLabel();
         } else {
-            System.out.println("Failed to send buy request.");
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("transferMarket.fxml"));
+                loader.load();
+                TransferMarketController transferController = loader.getController();
+                transferController.setUserData(username, userTeam);
+                transferController.searchPlayers();
+                transferController.updateBalanceLabel();
+            } catch (Exception e) {
+                System.out.println("Error refreshing parent controller: " + e.getMessage());
+            }
         }
     }
 }

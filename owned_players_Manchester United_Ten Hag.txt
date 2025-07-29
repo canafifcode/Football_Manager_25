@@ -1,0 +1,11 @@
+Premier League,Manchester United,Onana,GK,86,Reflexes:88;Handling:85;Positioning:85;Diving:87;Kicking:85
+Premier League,Manchester United,Rashford,Forward,81,Pace:90;Passing:75;Shooting:85;Dribbling:85;Defending:60;Physical:75
+Premier League,Manchester United,B.Fernandes,Midfielder,81,Pace:75;Passing:90;Shooting:80;Dribbling:80;Defending:75;Physical:78
+Premier League,Manchester United,Casemiro,Midfielder,80,Pace:70;Passing:80;Shooting:70;Dribbling:75;Defending:85;Physical:85
+Premier League,Manchester United,Varane,Defender,77,Pace:75;Passing:75;Shooting:60;Dribbling:65;Defending:88;Physical:82
+Premier League,Manchester United,Martinez,Defender,76,Pace:72;Passing:78;Shooting:60;Dribbling:70;Defending:85;Physical:80
+Premier League,Manchester United,Mount,Midfielder,77,Pace:78;Passing:82;Shooting:75;Dribbling:80;Defending:70;Physical:75
+Premier League,Manchester United,Antony,Forward,78,Pace:85;Passing:75;Shooting:80;Dribbling:85;Defending:60;Physical:72
+Premier League,Manchester United,Garnacho,Forward,78,Pace:88;Passing:75;Shooting:80;Dribbling:85;Defending:60;Physical:70
+Premier League,Manchester United,Shaw,Defender,78,Pace:80;Passing:80;Shooting:65;Dribbling:75;Defending:85;Physical:78
+Premier League,Manchester United,Lindelof,Defender,73,Pace:70;Passing:75;Shooting:60;Dribbling:65;Defending:80;Physical:78

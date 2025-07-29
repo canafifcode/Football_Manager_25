@@ -1,6 +1,7 @@
 package com.example.fm25.controller;
 
 import com.example.fm25.Loader.*;
+import com.example.fm25.NetworkContext;
 import com.example.fm25.Server.*;
 
 import com.example.fm25.Loader.PlayerLoader;
@@ -92,7 +93,7 @@ public class HomePageController extends BuySell {
         double yOffset = 5.0;
         for (PlayerLoader player : players) {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("playerCard.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fm25/playerCard.fxml"));
                 AnchorPane card = loader.load();
                 PlayerCardItemController itemController = loader.getController();
                 itemController.setPlayerData(player);
@@ -110,11 +111,12 @@ public class HomePageController extends BuySell {
 
     @FXML
     public void goBack(javafx.event.ActionEvent event) throws IOException {
-        URL resource = getClass().getResource("home.fxml");
+        URL resource = getClass().getResource("/com/example/fm25/home.fxml");
         if (resource == null) {
             System.out.println("Error: home.fxml not found in resources!");
             return;
         }
+        NetworkContext.closeSession();
         Parent root = FXMLLoader.load(resource);
         Stage stage = (Stage) playerContainer.getScene().getWindow();
         Scene scene = new Scene(root, 1215, 600, Color.NAVY);
@@ -125,7 +127,7 @@ public class HomePageController extends BuySell {
 
     public void goToTransferMarket(ActionEvent actionEvent) {
         try {
-            URL resource = getClass().getResource("transferMarket.fxml");
+            URL resource = getClass().getResource("/com/example/fm25/transferMarket.fxml");
             if (resource == null) {
                 System.out.println("transferMarket.fxml not found in resources!");
                 return;
