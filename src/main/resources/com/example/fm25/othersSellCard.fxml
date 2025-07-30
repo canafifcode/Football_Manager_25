@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="95.0" prefWidth="523.0" style="-fx-background-color: #5E936C; -fx-border-color: white;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fm25.controller.PlayerCardItemController">
+    <children>
+        <Label fx:id="nameLabel" layoutX="10.0" layoutY="10.0" text="Player Name" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Label>
+        <Label fx:id="positionLabel" layoutX="10.0" layoutY="30.0" text="Position" textFill="WHITE">
+            <font>
+                <Font size="12.0" />
+            </font>
+        </Label>
+        <Label fx:id="overallLabel" layoutX="10.0" layoutY="50.0" text="Overall" textFill="WHITE">
+            <font>
+                <Font size="12.0" />
+            </font>
+        </Label>
+        <Label fx:id="statsLabel" layoutX="10.0" layoutY="70.0" text="Stats" textFill="WHITE" wrapText="true">
+            <font>
+                <Font size="12.0" />
+            </font>
+        </Label>
+        <Label alignment="CENTER" layoutX="193.0" layoutY="12.0" prefHeight="37.0" prefWidth="84.0" text="Price : " textFill="#f0ff47">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <Label fx:id="costLabel" layoutX="264.0" layoutY="12.0" prefHeight="37.0" prefWidth="124.0" textFill="#7bff89">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Button fx:id="buyPlayerButton" layoutX="342.0" layoutY="64.0" onAction="#buyPlayerAction" prefHeight="18.0" prefWidth="91.0" style="-fx-background-color: green;" text="Buy Player" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Button>
+        <ImageView fx:id="playerView" fitHeight="97.0" fitWidth="91.0" layoutX="433.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
+    </children>
+</AnchorPane>

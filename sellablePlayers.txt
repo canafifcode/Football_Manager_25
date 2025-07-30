@@ -1,0 +1,2 @@
+La Liga,Barcelona,Ter Stegen,GK,91,Reflexes:90;Handling:92;Positioning:88;Diving:89;Kicking:85
+La Liga,Barcelona,Lewandowski,Forward,83,Pace:75;Passing:78;Shooting:93;Dribbling:80;Defending:60;Physical:85
