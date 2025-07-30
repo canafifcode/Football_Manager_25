@@ -38,13 +38,14 @@ public class HomePageController extends BuySell {
 
     private String userTeam; // Added to store userTeam
 
+    @FXML
     public void setTeamLogo(String teamName) {
         if (teamName == null || teamName.trim().isEmpty()) {
             System.out.println("Error: teamName is null or empty in setTeamLogo");
             teamLogoView.setImage(null);
             return;
         }
-        String imagePath = "/logos/" + teamName.toLowerCase() + ".png";
+        String imagePath = "/logos/" + teamName + ".png";
         try {
             Image logo = new Image(getClass().getResourceAsStream(imagePath));
             teamLogoView.setImage(logo);
@@ -109,22 +110,23 @@ public class HomePageController extends BuySell {
         playerContainer.setPrefHeight(yOffset + 5.0);
     }
 
-    @FXML
-    public void goBack(javafx.event.ActionEvent event) throws IOException {
-        URL resource = getClass().getResource("/com/example/fm25/home.fxml");
-        if (resource == null) {
-            System.out.println("Error: home.fxml not found in resources!");
-            return;
-        }
-        NetworkContext.closeSession();
-        Parent root = FXMLLoader.load(resource);
-        Stage stage = (Stage) playerContainer.getScene().getWindow();
-        Scene scene = new Scene(root, 1215, 600, Color.NAVY);
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.show();
-    }
+//    @FXML
+//    public void goBack(javafx.event.ActionEvent event) throws IOException {
+//        URL resource = getClass().getResource("/com/example/fm25/home.fxml");
+//        if (resource == null) {
+//            System.out.println("Error: home.fxml not found in resources!");
+//            return;
+//        }
+//        NetworkContext.closeSession();
+//        Parent root = FXMLLoader.load(resource);
+//        Stage stage = (Stage) playerContainer.getScene().getWindow();
+//        Scene scene = new Scene(root, 1215, 600, Color.NAVY);
+//        stage.setScene(scene);
+//        stage.setResizable(false);
+//        stage.show();
+//    }
 
+    @FXML
     public void goToTransferMarket(ActionEvent actionEvent) {
         try {
             URL resource = getClass().getResource("/com/example/fm25/transferMarket.fxml");
@@ -145,5 +147,21 @@ public class HomePageController extends BuySell {
             System.out.println("Error loading transferMarket.fxml: ");
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void logout(ActionEvent event) throws IOException {
+        NetworkContext.closeSession();
+        URL resource = getClass().getResource("/com/example/fm25/signIn.fxml");
+        if (resource == null) {
+            System.out.println("Error: signIn.fxml not found in resources!");
+            return;
+        }
+        Parent root = FXMLLoader.load(resource);
+        Stage stage = (Stage) playerContainer.getScene().getWindow();
+        Scene scene = new Scene(root, 1215, 600, Color.NAVY);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
     }
 }

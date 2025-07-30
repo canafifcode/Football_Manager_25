@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
@@ -26,10 +27,11 @@
                 <Font size="12.0" />
             </font>
         </Label>
-        <Button fx:id="sellPlayerButton" layoutX="496.0" layoutY="37.0" onAction="#sellPlayerAction" style="-fx-background-color: red;" text="Sell Player" textFill="WHITE">
+        <Button fx:id="sellPlayerButton" layoutX="427.0" layoutY="17.0" onAction="#sellPlayerAction" style="-fx-background-color: red;" text="Sell Player" textFill="WHITE">
             <font>
                 <Font size="12.0" />
             </font>
         </Button>
+        <ImageView fx:id="playerView" fitHeight="92.0" fitWidth="84.0" layoutX="498.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" />
     </children>
 </AnchorPane>

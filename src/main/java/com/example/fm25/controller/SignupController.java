@@ -14,9 +14,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
@@ -81,6 +81,7 @@ public class SignupController implements Initializable {
 
         User newUser = new User(username, password, league, team);
         saveUserToFile(newUser);
+        createOwnedSellRequestedFile(username);
         System.out.println("User Signed Up: " + newUser);
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/com/example/fm25/home.fxml"));
@@ -90,6 +91,18 @@ public class SignupController implements Initializable {
             stage.setResizable(false);
             stage.show();
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void createOwnedSellRequestedFile(String userName) {
+        try {
+            String fileName="sell_Request_of_" +userName+ ".txt";
+            FileWriter writer = new FileWriter(fileName);
+            writer.close();
+            System.out.println("File created: " + fileName);
+        } catch (IOException e) {
+            System.out.println("An error occurred while creating the file.");
             e.printStackTrace();
         }
     }
@@ -129,7 +142,6 @@ public class SignupController implements Initializable {
         }
         return false;
     }
-
 
     @FXML
     public void goBack(ActionEvent event) throws IOException {

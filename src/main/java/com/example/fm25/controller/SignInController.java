@@ -70,7 +70,7 @@ public class SignInController {
             System.out.println("Sign in successful!");
             logSignIn(username);
             BuySell.createOrResetOwnedPlayersFile(username, userTeam);
-
+            BuySell.loadOwnedPlayers(username, userTeam);
             Socket socket = new Socket("localhost", 7564);
             NetworkContext.setSocket(socket);
             BuyRequestClient client = new BuyRequestClient(socket, username, userTeam, new BuySell());

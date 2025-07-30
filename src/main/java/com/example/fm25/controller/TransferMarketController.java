@@ -4,6 +4,7 @@ import com.example.fm25.BuyRequestClient;
 import com.example.fm25.Loader.BuySell;
 import com.example.fm25.Loader.PlayerLoader;
 import com.example.fm25.NetworkContext;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -199,15 +200,17 @@ public class TransferMarketController extends BuySell {
         stage.show();
     }
 
-    @Override
-    public boolean buyPlayer(PlayerLoader player) {
-        boolean success = super.buyPlayer(player);
-        if (success) {
-            updateBalanceLabel();
-            searchPlayers();
-        }
-        return success;
-    }
+//    @Override
+//    public synchronized boolean buyPlayer(PlayerLoader player, String username, String teamName) {
+//        boolean success = super.buyPlayer(player, username, teamName);
+//        if (success) {
+//            Platform.runLater(() -> {
+//                updateBalanceLabel();
+//                searchPlayers();
+//            });
+//        }
+//        return success;
+//    }
 
     @FXML
     public void updateBalanceLabel() {
@@ -251,16 +254,19 @@ public class TransferMarketController extends BuySell {
         stage.show();
     }
 
-    public void goToTransferList(ActionEvent actionEvent) throws IOException {
+    @FXML
+    public void goToTransferList(ActionEvent event) throws IOException {
+        System.out.println("TransferMarketController.goToTransferList called by " + username);
         URL resource = getClass().getResource("/com/example/fm25/transfer_listed.fxml");
         if (resource == null) {
             System.out.println("Error: transfer_listed.fxml not found in resources!");
-            displayError("Unable to load transfer list page. Resource not found.");
             return;
         }
         FXMLLoader loader = new FXMLLoader(resource);
-        com.example.fm25.controller.TransferListController controller = loader.getController();
+        Parent root = loader.load();
+        TransferListController controller = loader.getController();
         controller.setUserData(username, userTeam);
+        root.setUserData(controller); // Set userData
         Stage stage = (Stage) playerContainer.getScene().getWindow();
         Scene scene = new Scene(root, 1215, 600, Color.NAVY);
         stage.setScene(scene);

@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="playerContainer" prefHeight="600.0" prefWidth="1215.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fm25.controller.TransferMarketController">
+<AnchorPane fx:id="playerContainer" prefHeight="600.0" prefWidth="1215.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fm25.controller.TransferListController">
     <children>
         <ImageView fitHeight="752.0" fitWidth="1236.0" layoutX="-3.0" layoutY="-95.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -27,20 +31,21 @@
                 <Font name="Georgia bold" size="17.0" />
             </font>
         </Label>
-        <Label fx:id="balanceLabel" alignment="CENTER" layoutX="153.0" layoutY="519.0" prefHeight="32.0" prefWidth="120.0" textAlignment="CENTER" textFill="midnightblue">
+        <Label fx:id="balanceLabel" alignment="CENTER" layoutX="608.0" layoutY="551.0" prefHeight="36.0" prefWidth="186.0" textAlignment="CENTER" textFill="midnightblue">
             <font>
                 <Font name="Impact Bold" size="25.0" />
             </font>
         </Label>
-      <ScrollPane layoutX="22.0" layoutY="113.0" prefHeight="402.0" prefWidth="523.0" hbarPolicy="NEVER" stylesheets="@transparent-scrollpane.css" vbarPolicy="AS_NEEDED">
+      <ScrollPane fx:id="myscrollPane" hbarPolicy="NEVER" layoutX="22.0" layoutY="113.0" prefHeight="402.0" prefWidth="523.0" stylesheets="@transparent-scrollpane.css" vbarPolicy="AS_NEEDED">
         <content>
             <VBox fx:id="playermytfList" spacing="8" style="-fx-background-color: transparent;" />
         </content>
       </ScrollPane>
-      <ScrollPane layoutX="645.0" layoutY="113.0" prefHeight="402.0" prefWidth="523.0" hbarPolicy="NEVER" stylesheets="@transparent-scrollpane.css" vbarPolicy="AS_NEEDED">
+      <ScrollPane fx:id="othersscrollPane" hbarPolicy="NEVER" layoutX="645.0" layoutY="113.0" prefHeight="402.0" prefWidth="523.0" stylesheets="@transparent-scrollpane.css" vbarPolicy="AS_NEEDED">
         <content>
             <VBox fx:id="playerothertfList" spacing="8" style="-fx-background-color: transparent;" />
         </content>
       </ScrollPane>
+      <Button fx:id="backButton" layoutX="1099.0" layoutY="542.0" mnemonicParsing="false" onAction="#switchToTransferMarket" prefHeight="29.0" prefWidth="96.0" text="Back" />
     </children>
 </AnchorPane>

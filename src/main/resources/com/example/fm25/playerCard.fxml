@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
@@ -21,10 +22,11 @@
                 <Font name="Arial Black" size="14.0" />
             </font>
         </Label>
-        <Label fx:id="statsLabel" layoutX="210.0" layoutY="37.0" prefHeight="100.0" prefWidth="731.0" text="Stats" textFill="WHITE" wrapText="true">
+        <Label fx:id="statsLabel" layoutX="210.0" layoutY="37.0" prefHeight="100.0" prefWidth="579.0" text="Stats" textFill="WHITE" wrapText="true">
             <font>
                 <Font name="Arial Black" size="14.0" />
             </font>
         </Label>
+        <ImageView fx:id="playerView" fitHeight="132.0" fitWidth="127.0" layoutX="807.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
     </children>
 </AnchorPane>

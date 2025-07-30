@@ -3,24 +3,29 @@ package com.example.fm25;
 import com.example.fm25.Loader.BuySell;
 import com.example.fm25.Loader.PlayerLoader;
 import com.example.fm25.Server.info;
+import com.example.fm25.controller.TransferListController;
 import com.example.fm25.util.NetWorkUtil;
+import javafx.application.Platform;
+import javafx.scene.Scene;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.List;
 
 public class BuyRequestClient {
-    private final NetWorkUtil netUtil;
+    private NetWorkUtil netUtil;
     private final BuySell buySell;
     private final String username;
     private final String userTeam;
     private volatile boolean running = true;
+    private Socket socket;
+    private static final int RECONNECT_DELAY_MS = 2000; // 2-second delay between reconnect attempts
 
-    // Uses the existing Socket (do NOT create a new socket here!)
     public BuyRequestClient(Socket socket, String username, String userTeam, BuySell buySell) throws Exception {
         this.buySell = buySell;
         this.username = username;
         this.userTeam = userTeam;
-        this.netUtil = new NetWorkUtil(socket); // Use the existing socket!
+        this.socket = socket;
+        this.netUtil = new NetWorkUtil(socket);
         info clientInfo = new info(username, userTeam, netUtil);
         System.out.println("Sending info for user: " + username);
         netUtil.write(clientInfo);
@@ -29,23 +34,42 @@ public class BuyRequestClient {
 
     public boolean sendBuyRequest(String message) {
         try {
+            if (socket.isClosed()) {
+                System.err.println("Socket is closed, attempting to reconnect...");
+                reconnect();
+            }
             netUtil.write(message);
             Object response = netUtil.read();
-            if (response instanceof String) {
-                String responseMessage = (String) response;
-                System.out.println("Server response: " + responseMessage);
-                return responseMessage.startsWith("Success");
-            }
-            return false;
-        } catch (Exception e) {
-            System.out.println("BuyRequestClient error: " + e.getMessage());
+            System.out.println("Received response: " + response);
+            return response instanceof String && ((String) response).startsWith("Success");
+        } catch (IOException | ClassNotFoundException e) {
+            System.err.println("Network error in sendBuyRequest: " + e.getMessage());
+            e.printStackTrace();
             return false;
         }
     }
 
-    private void listenForUpdates() {
+    private void reconnect() {
         try {
-            while (running) {
+            Thread.sleep(RECONNECT_DELAY_MS); // Add delay to prevent rapid reconnect attempts
+            socket = new Socket("localhost", 7564);
+            netUtil = new NetWorkUtil(socket);
+            info clientInfo = new info(username, userTeam, netUtil);
+            netUtil.write(clientInfo);
+            System.out.println("Reconnected to server for user: " + username);
+            new Thread(this::listenForUpdates).start(); // Restart listener thread
+        } catch (IOException e) {
+            System.err.println("Failed to reconnect: " + e.getMessage());
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            System.err.println("Reconnect interrupted: " + e.getMessage());
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    private void listenForUpdates() {
+        while (running) {
+            try {
                 Object obj = netUtil.read();
                 if (obj instanceof List) {
                     @SuppressWarnings("unchecked")
@@ -56,22 +80,40 @@ public class BuyRequestClient {
                             buySell.addAvailablePlayer(player);
                         }
                         System.out.println("Received updated transfer list with " + updatedList.size() + " players");
+                        Platform.runLater(() -> {
+                            Scene scene = buySell.getScene();
+                            if (scene != null) {
+                                Object controller = scene.getRoot().getUserData();
+                                if (controller instanceof TransferListController transferListController) {
+                                    transferListController.loadOwnedSellrequestedPlayers();
+                                    transferListController.loadOthersSellrequestedPlayers();
+                                    transferListController.setBalanceLabel();
+                                }
+                            }
+                        });
                     }
                 } else if (obj == null) {
                     System.out.println("Server disconnected");
-                    break;
+                    if (running) reconnect();
+                } else {
+                    System.out.println("Unexpected data received: " + obj);
                 }
-            }
-        } catch (Exception e) {
-            if (running) {
-                System.out.println("Error receiving updates: " + e.getMessage());
+            } catch (IOException | ClassNotFoundException e) {
+                if (running) {
+                    System.err.println("Error receiving updates: " + e.getMessage());
+                    e.printStackTrace();
+                    reconnect();
+                }
             }
         }
     }
 
-    // stop the thread and close the streams
     public void close() {
         running = false;
-        netUtil.closeNetwork();
+        if (netUtil != null) netUtil.closeNetwork();
+    }
+
+    public Scene getScene() {
+        return buySell.getScene();
     }
 }
