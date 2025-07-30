@@ -99,6 +99,9 @@ public class TransferMarketController extends BuySell {
             if (position != null && !position.equals(player.getPosition())) {
                 matches = false;
             }
+            if (player.getTeam().equals(userTeam)) {
+                matches = false;
+            }
             if (matches) {
                 filteredPlayers.add(player);
             }
@@ -135,7 +138,7 @@ public class TransferMarketController extends BuySell {
                 }
                 AnchorPane card = cardLoader.load();
                 PlayerCardItemController itemController = cardLoader.getController();
-                itemController.setPlayerData(player, username, userTeam, client);
+                itemController.setPlayerData(player, username, userTeam, this.client, this);
                 playerList.getChildren().add(card);
             }
 

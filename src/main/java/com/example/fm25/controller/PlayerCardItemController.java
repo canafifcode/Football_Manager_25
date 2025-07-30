@@ -47,15 +47,17 @@ public class PlayerCardItemController extends BuySell {
     private String username;
     private String userTeam;
     private BuyRequestClient client;
+    private Object parentController;
 
     private static final List<String> NON_GK_STATS = Arrays.asList("Pace", "Passing", "Shooting", "Dribbling", "Defending", "Physical");
     private static final List<String> GK_STATS = Arrays.asList("Reflexes", "Handling", "Positioning", "Diving", "Kicking");
 
-    public void setPlayerData(PlayerLoader player, String username, String userTeam, BuyRequestClient client) {
+    public void setPlayerData(PlayerLoader player, String username, String userTeam, BuyRequestClient client, Object parentController) {
         this.player = player;
         this.username = username;
         this.userTeam = userTeam;
         this.client = client;
+        this.parentController = parentController;
         setPlayerData(player);
     }
 
@@ -198,8 +200,14 @@ public class PlayerCardItemController extends BuySell {
     }
 
     private void refreshParentController() {
-        Object controller = sellPlayerButton != null ? sellPlayerButton.getScene().getRoot().getUserData() :
-                buyPlayerButton != null ? buyPlayerButton.getScene().getRoot().getUserData() : null;
+        Object controller = this.parentController;
+
+        if (controller == null) {
+            System.err.println("Error: Parent controller reference is null.");
+            return;
+        }
+
+        // The rest of your method remains the same
         if (controller instanceof SellPlayerController sellController) {
             sellController.loadOwnedPlayers();
             sellController.setBalanceLabel();
@@ -216,9 +224,5 @@ public class PlayerCardItemController extends BuySell {
         } else {
             System.err.println("Error: Parent controller not recognized");
         }
-    }
-
-    public void setPlayerData(PlayerLoader player, String username, String userTeam) {
-
     }
 }

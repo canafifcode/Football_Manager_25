@@ -99,44 +99,66 @@ public class BuySell {
 
     public boolean sellPlayer(PlayerLoader player) {
         if (availablePlayers.containsKey(player.getName())) {
-            String fileInsert = "sell_Request_of_" +userName+ ".txt";
-            String fileInsertTwo= "sellablePlayers.txt";
-            String filetaken = "owned_players_"+ NetworkContext.getUserTeam() +"_" +userName+ ".txt";
+            String fileInsert = "sell_Req_of_" + NetworkContext.getUsername() + ".txt";
+            String fileInsertTwo = "sellablePlayers.txt";
+            String filetaken = "owned_players_" + NetworkContext.getUserTeam() + "_" + NetworkContext.getUsername()  + ".txt";
+
+            // Ensure files exist
+            ensureFileExists(fileInsert);
+            ensureFileExists(fileInsertTwo);
+
             try (
                     BufferedReader reader = new BufferedReader(new FileReader(filetaken));
-                    FileWriter writer = new FileWriter(fileInsert, true); // 'false' = overwrite mode
+                    FileWriter writer = new FileWriter(fileInsert, true);
                     FileWriter writerTwo = new FileWriter(fileInsertTwo, true)
             ) {
                 String line;
+                boolean playerFound = false;
                 while ((line = reader.readLine()) != null) {
                     String[] parts = line.split(",");
                     if (parts.length >= 6 && parts[2].trim().equals(player.getName())) {
                         writer.write(line + System.lineSeparator());
                         writerTwo.write(line + System.lineSeparator());
+                        playerFound = true;
                     }
                 }
-                System.out.println(fileInsert + " is ready (created/overwritten with owned players).");
-                System.out.println(fileInsertTwo + " is ready (created/overwritten with owned players).");
+
+                if (playerFound) {
+                    System.out.println(fileInsert + " is ready (updated with sold player).");
+                    System.out.println(fileInsertTwo + " is ready (updated with sold player).");
+                } else {
+                    System.out.println("Player " + player.getName() + " not found in owned players file");
+                }
+
             } catch (IOException e) {
-                System.out.println("Error creating/overwriting " + fileInsert +"/"+fileInsertTwo+ ": " + e.getMessage());
+                System.out.println("Error creating/updating " + fileInsert + "/" + fileInsertTwo + ": " + e.getMessage());
+                return false;
             }
 
-            //if(sellRequest(player))
-            if(true){
-                availablePlayers.remove(player.getName());
-                //availablePlayers.put(player.getName(), player);
-                updatePlayersFile(player, player.getTeam()); // Revert to original team
-                accountBalance += calculatePrice(player.getOverall()) * 0.8; // 80% refund
-                System.out.println(player.getName() + " sold! New balance: $" + accountBalance);
-                return true;
-            }
-            else return false;
-        }
-        else{
-            System.out.println("Cannot sell " + player.getName() + ": Not owned.");
+            // Process the sell
+            availablePlayers.remove(player.getName());
+            updatePlayersFile(player, player.getTeam());
+            accountBalance += calculatePrice(player.getOverall()) * 0.8; // 80% refund
+            System.out.println(player.getName() + " sold! New balance: $" + accountBalance);
+            return true;
+        } else {
+            System.out.println("Cannot sell " + player.getName() + ": Not in available players.");
             return false;
         }
     }
+
+    private void ensureFileExists(String fileName) {
+        File file = new File(fileName);
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+                System.out.println("Created file: " + fileName);
+            } catch (IOException e) {
+                System.out.println("Error creating file " + fileName + ": " + e.getMessage());
+            }
+        }
+    }
+
     public double calculatePrice(int overall) {
         return overall * 150.0;
     }
@@ -176,26 +198,34 @@ public class BuySell {
     }
 
     public static void createOrResetOwnedPlayersFile(String username, String userTeam) {
-        userName = username;
-        userTeam = userTeam;
-        String fileName = "owned_players_" + userTeam.replace(" ", "_") + "_" + username + ".txt";
-        try (FileWriter writer = new FileWriter(fileName, false)) {
-            for (PlayerLoader player : ownedPlayers.values()) {
-                String playerData = String.format("%s,%s,%s,%s,%d,%s%n",
-                        player.getLeague(), userTeam, player.getName(), player.getPosition(), player.getOverall(),
-                        player.getStats().entrySet().stream()
-                                .map(entry -> entry.getKey() + ":" + entry.getValue())
-                                .collect(Collectors.joining(",")));
-                writer.write(playerData);
+        userName=username;
+        //USERTEAM=userTeam;
+        String fileName = "owned_players_" + userTeam +"_" +username+ ".txt";
+        try (
+                BufferedReader reader = new BufferedReader(new FileReader("players.txt"));
+                FileWriter writer = new FileWriter(fileName, false) // 'false' = overwrite mode
+        ) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length >= 6 && parts[1].trim().equals(userTeam)) {
+                    writer.write(line + System.lineSeparator());
+                }
             }
             System.out.println(fileName + " is ready (created/overwritten with owned players).");
         } catch (IOException e) {
-            System.err.println("Error creating/resetting " + fileName + ": " + e.getMessage());
+            System.out.println("Error creating/overwriting " + fileName + ": " + e.getMessage());
         }
     }
 
     public static void loadOwnedPlayers(String username, String userTeam) {
         String fileName = "owned_players_" + userTeam.replace(" ", "_") + "_" + username + ".txt";
+        File file = new File(fileName);
+        if (!file.exists()) {
+            System.out.println("Owned players file does not exist: " + fileName);
+            return;
+        }
+
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             while ((line = reader.readLine()) != null) {

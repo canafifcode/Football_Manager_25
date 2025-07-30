@@ -43,6 +43,7 @@ public class SellPlayerController extends BuySell {
 
     public void setUserTeam(String userTeam) {
         this.userTeam = userTeam;
+        this.client=NetworkContext.getClient();
         System.out.println("setUserTeam called - userTeam: " + userTeam);
     }
 
@@ -89,7 +90,7 @@ public class SellPlayerController extends BuySell {
                 FXMLLoader loader = new FXMLLoader(resource);
                 AnchorPane card = loader.load();
                 PlayerCardItemController itemController = loader.getController();
-                itemController.setPlayerData(player, username, userTeam, client);
+                itemController.setPlayerData(player, username, userTeam, this.client, this);
                 playerList.getChildren().add(card);
             } catch (IOException e) {
                 System.out.println("Error loading sellPlayerCard.fxml for player: " + player.getName() + ": " + e.getMessage());

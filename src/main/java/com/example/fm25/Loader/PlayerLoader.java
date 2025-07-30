@@ -171,7 +171,7 @@ public class PlayerLoader implements Serializable {
         return players;
     }
 
-    public List<PlayerLoader> loadPlayersForOthersSell(String username) {
+    public List<PlayerLoader> loadPlayersForOthersSell(String username,String teamName) {
         List<PlayerLoader> players = new ArrayList<>();
         String fileName="sellablePlayers.txt";
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
@@ -195,29 +195,32 @@ public class PlayerLoader implements Serializable {
                     Map<String, Integer> stats = new HashMap<>();
                     List<String> validStats = position.equalsIgnoreCase("GK") ? GK_STATS : NON_GK_STATS;
 
-                    String statString = parts[5].trim();
-                    for (int i = 6; i < parts.length; i++) {
-                        statString += ";" + parts[i].trim();
-                    }
-                    String[] statPairs = statString.split(";");
-                    for (String pair : statPairs) {
-                        String[] statParts = pair.split(":");
-                        if (statParts.length == 2) {
-                            try {
-                                String statKey = statParts[0].trim();
-                                int statValue = Integer.parseInt(statParts[1].trim());
-                                if (validStats.contains(statKey)) {
-                                    stats.put(statKey, statValue);
+                    if (!(team.equalsIgnoreCase(teamName))){
+                        String statString = parts[5].trim();
+                        for (int i = 6; i < parts.length; i++) {
+                            statString += ";" + parts[i].trim();
+                        }
+                        String[] statPairs = statString.split(";");
+                        for (String pair : statPairs) {
+                            String[] statParts = pair.split(":");
+                            if (statParts.length == 2) {
+                                try {
+                                    String statKey = statParts[0].trim();
+                                    int statValue = Integer.parseInt(statParts[1].trim());
+                                    if (validStats.contains(statKey)) {
+                                        stats.put(statKey, statValue);
+                                    }
+                                } catch (NumberFormatException e) {
+                                    System.out.println("Invalid stat value at line " + lineNumber + " for player: " + playerName + ", stat: " + pair);
                                 }
-                            } catch (NumberFormatException e) {
-                                System.out.println("Invalid stat value at line " + lineNumber + " for player: " + playerName + ", stat: " + pair);
                             }
                         }
+                        if (stats.isEmpty()) {
+                            System.out.println("No valid stats loaded at line " + lineNumber + " for player: " + playerName);
+                        }
+                        players.add(new PlayerLoader(playerName, position, league, team, stats, overall));
                     }
-                    if (stats.isEmpty()) {
-                        System.out.println("No valid stats loaded at line " + lineNumber + " for player: " + playerName);
-                    }
-                    players.add(new PlayerLoader(playerName, position, league, team, stats, overall));
+
                 }
             }
         } catch (IOException e) {
@@ -229,18 +232,18 @@ public class PlayerLoader implements Serializable {
         return players;
     }
 
-//    private String getMySellRequest(String username, String playerName) {
-//        String fileName = "sell_Request_of_" + username + ".txt";
-//        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-//            String line;
-//            while ((line = reader.readLine()) != null) {
-//                if (line.contains(playerName)) {
-//                    return line;
-//                }
-//            }
-//        } catch (IOException e) {
-//            System.err.println("Error reading " + fileName + ": " + e.getMessage());
-//        }
-//        return "";
-//    }
+    private String getMySellRequest(String username, String playerName) {
+        String fileName = "sell_Req_of_" + username + ".txt";
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.contains(playerName)) {
+                    return line;
+                }
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading " + fileName + ": " + e.getMessage());
+        }
+        return "";
+    }
 }

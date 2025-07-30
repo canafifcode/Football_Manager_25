@@ -38,10 +38,14 @@ public class Server {
                 System.out.println("Client " + count + " connected successfully");
                 NetWorkUtil netUtil = new NetWorkUtil(clientSocket);
                 Object obj = netUtil.read();
+                //Object obj = netUtil.read();
                 if (obj instanceof info) {
-                    info clientInfo = (info) obj;
+                    info receivedInfo = (info) obj;
+                    // Create a new info object on the server that includes the connection's NetWorkUtil
+                    info clientInfoForServer = new info(receivedInfo.getUsername(), receivedInfo.getTeamName(), netUtil);
                     synchronized (clientMap) {
-                        clientMap.put(clientInfo.getUsername(), clientInfo);
+                        // Store the server-side info object in the map
+                        clientMap.put(clientInfoForServer.getUsername(), clientInfoForServer);
                     }
                     ClientHandler clientHandler = new ClientHandler(netUtil, clientMap, transferPlayerList, buySell);
                     new Thread(clientHandler).start();

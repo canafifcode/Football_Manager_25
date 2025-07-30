@@ -14,12 +14,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.util.List;
+import com.example.fm25.BuyRequestClient; // Add this import
+import com.example.fm25.NetworkContext;
 
 public class TransferListController extends BuySell {
 
     private String username;
     private String userTeam;
     private BuySell buySell;
+    private BuyRequestClient client;
 
     @FXML
     private Label balanceLabel;
@@ -39,6 +42,7 @@ public class TransferListController extends BuySell {
     public void setUserData(String username, String userTeam) {
         this.username = username;
         this.userTeam = userTeam;
+        this.client = NetworkContext.getClient();
         System.out.println("TransferListController.setUserData called - username: " + username + ", userTeam: " + userTeam);
         // After user data is set, load the players and update balance
         loadOwnedSellrequestedPlayers();
@@ -73,7 +77,7 @@ public class TransferListController extends BuySell {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fm25/othersSellCard.fxml"));
                 AnchorPane card = loader.load();
                 PlayerCardItemController itemController = loader.getController();
-                itemController.setPlayerData(player, username, userTeam); // Pass user info if needed
+                itemController.setPlayerData(player, username, userTeam, this.client, this); // Pass user info if needed
                 playermytfList.getChildren().add(card);
             } catch (IOException e) {
                 System.out.println("Error loading mySellCards.fxml for player: " + player.getName());
@@ -89,7 +93,7 @@ public class TransferListController extends BuySell {
             return;
         }
         PlayerLoader playerLoader = new PlayerLoader("", "", "", "", null, 0);
-        List<PlayerLoader> players = playerLoader.loadPlayersForOthersSell(username);
+        List<PlayerLoader> players = playerLoader.loadPlayersForOthersSell(username,userTeam);
 
         if (playerothertfList == null) {
             System.out.println("Error: playerothertfList VBox is null");
@@ -107,10 +111,11 @@ public class TransferListController extends BuySell {
 
         for (PlayerLoader player : players) {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("src/main/resources/com/example/fm25/othersSellCard.fxml"));
+                // Correct
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fm25/othersSellCard.fxml"));
                 AnchorPane card = loader.load();
                 PlayerCardItemController itemController = loader.getController();
-                itemController.setPlayerData(player, username, userTeam); // Pass user info if needed
+                itemController.setPlayerData(player, username, userTeam, this.client, this); // Pass user info if needed
                 playerothertfList.getChildren().add(card);
             } catch (IOException e) {
                 System.out.println("Error loading othersSellCard.fxml for player: " + player.getName());

@@ -54,8 +54,8 @@ public class ClientHandler implements Runnable {
             }
 
             String action = parts[2].toLowerCase();
-            String playerName = parts[4];
-            String username = parts[6];
+            String playerName = parts[3];
+            String username = parts[parts.length-1].trim();
             info clientInfo = clientMap.get(username);
 
             if (clientInfo == null) {
