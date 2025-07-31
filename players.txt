@@ -2,7 +2,7 @@ La Liga,Atlético Madrid,Oblak,GK,86,Reflexes:85;Handling:83;Positioning:82;Divi
 La Liga,Atlético Madrid,Griezmann,Forward,84,Pace:85;Passing:88;Shooting:90;Dribbling:87;Defending:60;Physical:75
 La Liga,Atlético Madrid,Morata,Forward,79,Pace:80;Passing:75;Shooting:88;Dribbling:78;Defending:62;Physical:82
 La Liga,Atlético Madrid,Koke,Midfielder,79,Pace:70;Passing:92;Shooting:72;Dribbling:78;Defending:80;Physical:77
-La Liga,Atlético Madrid,De-Paul,Midfielder,80,Pace:78;Passing:85;Shooting:75;Dribbling:82;Defending:78;Physical:80
+La Liga,YourTeam,De-Paul,Midfielder,80,
 La Liga,Atlético Madrid,Savic,Defender,75,Pace:65;Passing:70;Shooting:60;Dribbling:62;Defending:90;Physical:85
 La Liga,Atlético Madrid,Witsel,Defender,78,Pace:68;Passing:80;Shooting:65;Dribbling:70;Defending:88;Physical:82
 La Liga,Atlético Madrid,Saul,Midfielder,79,Pace:72;Passing:82;Shooting:78;Dribbling:75;Defending:80;Physical:83
@@ -10,7 +10,7 @@ La Liga,Atlético Madrid,Lino,Forward,79,Pace:88;Passing:75;Shooting:80;Dribblin
 La Liga,Atlético Madrid,Azpilicueta,Defender,76,Pace:70;Passing:78;Shooting:62;Dribbling:68;Defending:85;Physical:80
 La Liga,Atlético Madrid,Hermoso,Defender,75,Pace:72;Passing:75;Shooting:60;Dribbling:65;Defending:87;Physical:78
 La Liga,Barcelona,Ter Stegen,GK,91,Reflexes:90;Handling:92;Positioning:88;Diving:89;Kicking:85
-La Liga,Barcelona,Lewandowski,Forward,83,Pace:75;Passing:78;Shooting:93;Dribbling:80;Defending:60;Physical:85
+La Liga,YourTeam,Lewandowski,Forward,83,
 La Liga,Barcelona,Pedri,Midfielder,82,Pace:78;Passing:90;Shooting:72;Dribbling:88;Defending:70;Physical:75
 La Liga,Barcelona,Gavi,Midfielder,82,Pace:80;Passing:85;Shooting:70;Dribbling:85;Defending:78;Physical:80
 La Liga,Barcelona,Lamine Yamal,Forward,86,Pace:90;Passing:80;Shooting:82;Dribbling:92;Defending:60;Physical:70
@@ -151,7 +151,7 @@ Saudi Pro League,Al Nassr,Al-Amri,Defender,72,Pace:70;Passing:70;Shooting:60;Dri
 Saudi Pro League,Al Nassr,Al-Khaibari,Midfielder,75,Pace:75;Passing:78;Shooting:65;Dribbling:75;Defending:78;Physical:78
 Saudi Pro League,Al Nassr,Ghareeb,Forward,76,Pace:80;Passing:75;Shooting:78;Dribbling:80;Defending:60;Physical:75
 Saudi Pro League,Al Nassr,Wesley,Forward,76,Pace:82;Passing:75;Shooting:80;Dribbling:78;Defending:60;Physical:75
-Saudi Pro League,Al Nassr,Ronaldo,Forward,87,Pace:85;Passing:78;Shooting:95;Dribbling:85;Defending:60;Physical:80
+Saudi Pro League,YourTeam,Ronaldo,Forward,87,
 Ligue 1,Paris Saint-Germain,Donnarumma,GK,88,Reflexes:90;Handling:88;Positioning:90;Diving:88;Kicking:85
 Ligue 1,Paris Saint-Germain,Marquinhos,Defender,77,Pace:75;Passing:80;Shooting:60;Dribbling:70;Defending:88;Physical:80
 Ligue 1,Paris Saint-Germain,Skriniar,Defender,75,Pace:70;Passing:75;Shooting:60;Dribbling:65;Defending:85;Physical:82

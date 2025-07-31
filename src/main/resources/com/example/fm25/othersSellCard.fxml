@@ -27,9 +27,9 @@
                 <Font size="12.0" />
             </font>
         </Label>
-        <Label alignment="CENTER" layoutX="193.0" layoutY="12.0" prefHeight="37.0" prefWidth="84.0" text="Price : " textFill="#f0ff47">
+        <Label alignment="CENTER" layoutX="193.0" layoutY="12.0" prefHeight="37.0" prefWidth="84.0" text="Price : " textFill="RED">
             <font>
-                <Font size="24.0" />
+                <Font size="17.0" />
             </font>
         </Label>
         <Label fx:id="costLabel" layoutX="264.0" layoutY="12.0" prefHeight="37.0" prefWidth="124.0" textFill="#7bff89">
@@ -37,9 +37,9 @@
                 <Font size="18.0" />
             </font>
         </Label>
-        <Button fx:id="buyPlayerButton" layoutX="342.0" layoutY="64.0" onAction="#buyPlayerAction" prefHeight="18.0" prefWidth="91.0" style="-fx-background-color: green;" text="Buy Player" textFill="WHITE">
+        <Button fx:id="buyPlayerButton" layoutX="340.0" layoutY="28.0" onAction="#buyPlayerAction" prefHeight="18.0" prefWidth="84.0" style="-fx-background-color: green;" text="Buy Player" textFill="WHITE">
             <font>
-                <Font name="System Bold" size="14.0" />
+                <Font name="System Bold" size="12.0" />
             </font>
         </Button>
         <ImageView fx:id="playerView" fitHeight="97.0" fitWidth="91.0" layoutX="433.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />

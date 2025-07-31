@@ -138,11 +138,10 @@ public class TransferListController extends BuySell {
     @FXML
     public void switchToTransferMarket() throws IOException {
         System.out.println("TransferListController.switchToTransferMarket called - username: " + username + ", userTeam: " + userTeam);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("src/main/resources/com/example/fm25/transferMarket.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fm25/transferMarket.fxml"));
         Parent root = loader.load();
         TransferMarketController controller = loader.getController();
         controller.setUserData(username, userTeam);
-        myscrollPane.getScene().setRoot(root);
         othersscrollPane.getScene().setRoot(root);
     }
 
