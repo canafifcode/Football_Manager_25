@@ -1,5 +1,6 @@
 package com.example.fm25;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,6 +15,9 @@ import java.util.List;
 
 public class TransferListController extends BuySell {
 
+    public Button backButton;
+    public Button RefreshButton;
+    public AnchorPane playerContainer;
     private String username;
     private String userTeam;
 
@@ -136,4 +140,10 @@ public class TransferListController extends BuySell {
         othersscrollPane.getScene().setRoot(root);
     }
 
+    public void RefreshScene(ActionEvent actionEvent) {
+        System.out.println("TransferListController.RefreshScene called - username: " + username + ", userTeam: " + userTeam);
+        loadOwnedSellrequestedPlayers();
+        loadOthersSellrequestedPlayers();
+        setBalanceLabel();
+    }
 }

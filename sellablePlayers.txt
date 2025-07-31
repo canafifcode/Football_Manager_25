@@ -6,3 +6,6 @@ La Liga,Real Madrid,Mbappe,Forward,89,Pace:95;Passing:80;Shooting:90;Dribbling:9
 La Liga,Real Madrid,Mbappe,Forward,89,Pace:95;Passing:80;Shooting:90;Dribbling:92;Defending:60;Physical:78
 La Liga,Barcelona,Gavi,Midfielder,82,Pace:80;Passing:85;Shooting:70;Dribbling:85;Defending:78;Physical:80
 La Liga,Barcelona,Araujo,Defender,78,Pace:78;Passing:72;Shooting:60;Dribbling:65;Defending:90;Physical:88
+La Liga,Barcelona,Christensen,Defender,75,Pace:70;Passing:75;Shooting:60;Dribbling:65;Defending:85;Physical:80
+La Liga,Real Madrid,Mbappe,Forward,89,Pace:95;Passing:80;Shooting:90;Dribbling:92;Defending:60;Physical:78
+La Liga,Real Madrid,Rodrygo,Forward,81,Pace:90;Passing:78;Shooting:85;Dribbling:88;Defending:60;Physical:72
