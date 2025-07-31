@@ -36,7 +36,7 @@ public class PlayerCardItemController extends BuySell {
 
     @FXML
     private Button buyPlayerButtonfromOthers;
-    
+
     @FXML
     private ImageView teamLogoView;
 

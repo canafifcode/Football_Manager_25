@@ -233,3 +233,10 @@ MLS,Philadelphia Union,Bender,Midfielder,73,Pace:75;Passing:78;Shooting:65;Dribb
 MLS,Philadelphia Union,Quinn,Forward,76,Pace:80;Passing:75;Shooting:78;Dribbling:78;Defending:60;Physical:75
 MLS,Philadelphia Union,Damiani,Forward,76,Pace:80;Passing:75;Shooting:78;Dribbling:78;Defending:60;Physical:75
 MLS,Philadelphia Union,Q.Sullivan,Forward,74,Pace:80;Passing:75;Shooting:78;Dribbling:78;Defending:60;Physical:75
+
+
+
+
+
+
+Gemini can make mistakes, so double-check it

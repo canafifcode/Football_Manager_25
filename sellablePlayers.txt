@@ -1,0 +1,8 @@
+La Liga,Real Madrid,Courtois,GK,93,Reflexes:93;Handling:90;Positioning:92;Diving:91;Kicking:85
+La Liga,Real Madrid,Mbappe,Forward,89,Pace:95;Passing:80;Shooting:90;Dribbling:92;Defending:60;Physical:78
+La Liga,Real Madrid,Vinicius,Forward,86,Pace:94;Passing:78;Shooting:85;Dribbling:95;Defending:60;Physical:75
+La Liga,Barcelona,Lewandowski,Forward,83,Pace:75;Passing:78;Shooting:93;Dribbling:80;Defending:60;Physical:85
+La Liga,Real Madrid,Mbappe,Forward,89,Pace:95;Passing:80;Shooting:90;Dribbling:92;Defending:60;Physical:78
+La Liga,Real Madrid,Mbappe,Forward,89,Pace:95;Passing:80;Shooting:90;Dribbling:92;Defending:60;Physical:78
+La Liga,Barcelona,Gavi,Midfielder,82,Pace:80;Passing:85;Shooting:70;Dribbling:85;Defending:78;Physical:80
+La Liga,Barcelona,Araujo,Defender,78,Pace:78;Passing:72;Shooting:60;Dribbling:65;Defending:90;Physical:88
