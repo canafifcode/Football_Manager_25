@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1215.0" style="-fx-background-color: DARKGREY;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fm25.controller.HomePageController">
+<AnchorPane prefHeight="600.0" prefWidth="1215.0" style="-fx-background-color: DARKGREY;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fm25.PlayerCardController">
     <children>
         <ImageView fitHeight="600.0" fitWidth="1215.0">
             <image>
@@ -14,11 +15,15 @@
         </ImageView>
         <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="263.0" layoutY="8.0" prefHeight="525.0" prefWidth="946.0" style="-fx-background-color: transparent;" stylesheets="@transparent-scrollpane.css" vbarPolicy="AS_NEEDED">
             <content>
-                <VBox fx:id="playerContainer" minHeight="340.0" prefHeight="500.0" prefWidth="946.0" spacing="8" style="-fx-background-color: transparent;">
+                <VBox fx:id="playerContainer" spacing="8" minHeight="340.0" prefHeight="500.0" prefWidth="946.0" style="-fx-background-color: transparent;">
 
                 </VBox>
             </content>
         </ScrollPane>
+        <Button blendMode="LIGHTEN" layoutX="1034.0" layoutY="539.0" mnemonicParsing="false" onAction="#goBack" prefHeight="40.0" prefWidth="167.0" style="-fx-background-color: red;" text="Go Back" textFill="WHITE">
+            <font>
+                <Font name="Arial Black" size="22.0" />
+            </font></Button>
         <AnchorPane layoutX="5.0" layoutY="7.0" prefHeight="340.0" prefWidth="255.0">
             <children>
                 <ImageView fx:id="teamLogoView" fitHeight="255.0" fitWidth="255.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
@@ -33,9 +38,5 @@
                 <Font name="Impact" size="22.0" />
             </font>
         </Button>
-        <Button fx:id="logoutButton" layoutX="1068.0" layoutY="547.0" onAction="#logout" prefHeight="37.0" prefWidth="95.0" style="-fx-background-color: royalblue;" text="Logout" textFill="WHITE">
-         <font>
-            <Font name="System Bold Italic" size="18.0" />
-         </font></Button>
     </children>
 </AnchorPane>

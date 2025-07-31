@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="playerContainer" prefHeight="600.0" prefWidth="1215.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fm25.controller.TransferMarketController">
+<AnchorPane fx:id="playerContainer" prefHeight="600.0" prefWidth="1215.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fm25.TransferMarketController">
    <children>
       <ImageView fitHeight="752.0" fitWidth="1236.0" layoutX="-3.0" layoutY="-95.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -18,16 +18,16 @@
          </font>
       </Label>
       <TextField fx:id="nameField" blendMode="HARD_LIGHT" layoutX="260.0" layoutY="122.0" promptText="Search by Name" />
-      <TextField fx:id="clubField" blendMode="HARD_LIGHT" layoutX="427.0" layoutY="122.0" prefHeight="26.0" prefWidth="150.0" promptText="Search by Club" />
-      <ComboBox fx:id="leagueComboBox" blendMode="HARD_LIGHT" layoutX="594.0" layoutY="121.0" prefHeight="26.0" prefWidth="120.0" promptText="Select League" />
-      <ComboBox fx:id="positionComboBox" blendMode="HARD_LIGHT" layoutX="733.0" layoutY="121.0" prefHeight="26.0" prefWidth="120.0" promptText="Select Position" />
-      <Button fx:id="searchButton" blendMode="HARD_LIGHT" layoutX="883.0" layoutY="122.0" onAction="#searchPlayers" style="-fx-background-color: lightgreen;" text="Search" />
+      <TextField fx:id="clubField" blendMode="HARD_LIGHT" layoutX="419.0" layoutY="122.0" promptText="Search by Club" />
+      <ComboBox fx:id="leagueComboBox" blendMode="HARD_LIGHT" layoutX="582.0" layoutY="122.0" promptText="Select League" />
+      <ComboBox fx:id="positionComboBox" blendMode="HARD_LIGHT" layoutX="714.0" layoutY="121.0" promptText="Select Position" />
+      <Button fx:id="searchButton" blendMode="HARD_LIGHT" layoutX="850.0" layoutY="121.0" onAction="#searchPlayers" style="-fx-background-color: lightgreen;" text="Search" />
       <Button fx:id="backButton" blendMode="HARD_LIGHT" layoutX="1055.0" layoutY="535.0" onAction="#goBack" prefHeight="30.0" prefWidth="88.0" text="Back">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Label layoutX="47.0" layoutY="525.0" prefHeight="20.0" prefWidth="186.0" text="Your Balance:" textFill="WHITE">
+      <Label layoutX="47.0" layoutY="525.0" text="Your Balance:" textFill="WHITE">
          <font>
             <Font name="Georgia" size="17.0" />
          </font>
@@ -41,7 +41,7 @@
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>
-      <Button fx:id="transferListedButton" layoutX="607.0" layoutY="187.0" mnemonicParsing="false" onAction="#goToTransferList" prefHeight="31.0" prefWidth="172.0" style="-fx-background-color: orange;" text="Transfer Listed Players" textFill="WHITE">
+      <Button fx:id="transferListedButton" onAction="#handleTransferListed" layoutX="607.0" layoutY="187.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="172.0" style="-fx-background-color: orange;" text="Transfer Listed Players" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

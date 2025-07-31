@@ -1,4 +1,3 @@
 Afif,123,La Liga,Real Madrid
 sajiid,123,La Liga,Barcelona
-
 lara,123,La Liga,Atlético Madrid

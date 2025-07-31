@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="95.0" prefWidth="521.0" style="-fx-background-color: #555879; -fx-border-color: white; -fx-border-width: 1;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fm25.controller.PlayerCardItemController">
+<AnchorPane prefHeight="95.0" prefWidth="521.0" style="-fx-background-color: #555879; -fx-border-color: white; -fx-border-width: 1;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fm25.PlayerCardItemController">
     <children>
         <Label fx:id="nameLabel" layoutX="10.0" layoutY="10.0" text="Player Name" textFill="WHITE">
             <font>
@@ -37,6 +36,5 @@
             <Font size="18.0" />
          </font>
       </Label>
-        <ImageView fx:id="playerView" fitHeight="91.0" fitWidth="93.0" layoutX="309.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
     </children>
 </AnchorPane>

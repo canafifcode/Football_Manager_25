@@ -6,6 +6,4 @@ module com.example.fm25 {
 
     opens com.example.fm25 to javafx.fxml;
     exports com.example.fm25;
-    exports com.example.fm25.controller;
-    opens com.example.fm25.controller to javafx.fxml;
 }
