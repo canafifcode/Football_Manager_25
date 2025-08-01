@@ -82,6 +82,7 @@ public class Signup implements Initializable {
         User newUser = new User(username, password, league, team);
         saveUserToFile(newUser);
         createOwnedSellRequestedFile(username);
+        BuySell.createOrResetOwnedPlayersFile(username, team);
         System.out.println("User Signed Up: " + newUser);
         try {
             Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));

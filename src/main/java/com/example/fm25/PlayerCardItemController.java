@@ -7,6 +7,11 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -44,6 +49,9 @@ public class PlayerCardItemController extends BuySell {
     private ImageView playerView;
 
     private Player player;
+
+    public PlayerCardItemController() throws IOException {
+    }
 
     public void setPlayerView(String playerName) {
         String imagePath = "/card/" + playerName.toLowerCase() + ".png";
@@ -127,7 +135,7 @@ public class PlayerCardItemController extends BuySell {
 
 
     @FXML
-    public void sellPlayerAction(ActionEvent event) {
+    public void sellPlayerAction(ActionEvent event) throws IOException {
         if (player == null) {
             System.out.println("Error: No player selected for selling");
             return;
@@ -164,11 +172,10 @@ public class PlayerCardItemController extends BuySell {
         String managerHost = "localhost";
         int managerPort = 5000;
 
-        String buyMessage = String.format("Request to buy %s from %s by %s",
-                player.getName(), player.getTeam(), "YourTeamOrUsername");
-
-        boolean success = BuyRequestClient.sendBuyRequest(managerHost, managerPort, buyMessage);
-
+        String buyMessage = String.format("BUY %s %s %s", player.getName(), NetworkContext.getUsername(), NetworkContext.getUserTeam());
+        boolean success = false;
+        // Send the buy request to the server
+        success = ServerCommunicator.sendBuyRequest(managerHost, managerPort, buyMessage);
         if (success) {
             buyPlayerButton.setDisable(true);
             buyPlayerButton.setText("Requested");
@@ -178,6 +185,29 @@ public class PlayerCardItemController extends BuySell {
         }
     }
 
-    public void buyPlayerActionfromOthers(ActionEvent actionEvent) {
+    public void buyPlayerActionfromOthers(ActionEvent actionEvent) throws IOException {
+        if (player == null){
+            System.out.println("error loading player.");
+            return;
+        }
+
+        buyPlayerButtonfromOthers.setDisable(true);
+        buyPlayerButtonfromOthers.setText("Bought");
+
+
+        boolean success = buyothersPlayer(player);
+
+        if (success) {
+            System.out.println("Player " + player.getName() + " bought successfully");
+            // Optionally refresh the UI by reloading players
+            if (buyPlayerButtonfromOthers.getScene().getRoot().getUserData() instanceof TransferListController controller) {
+                controller.loadOthersSellrequestedPlayers();
+            }
+        } else {
+            System.out.println("Failed to buy player " + player.getName());
+        }
+
     }
+
+
 }

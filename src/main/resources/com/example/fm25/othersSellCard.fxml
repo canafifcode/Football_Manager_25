@@ -37,7 +37,7 @@
                 <Font size="18.0" />
             </font>
         </Label>
-        <Button fx:id="buyPlayerButton" layoutX="399.0" layoutY="16.0" onAction="#buyPlayerAction" prefHeight="26.0" prefWidth="110.0" style="-fx-background-color: green;" text="Buy Player" textFill="WHITE">
+        <Button fx:id="buyPlayerButtonfromOthers" layoutX="399.0" layoutY="16.0" onAction="#buyPlayerActionfromOthers" prefHeight="26.0" prefWidth="110.0" style="-fx-background-color: green;" text="Buy Player" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>

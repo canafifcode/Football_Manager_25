@@ -52,6 +52,9 @@ public class TransferMarketController extends BuySell {
     @FXML
     private AnchorPane playerContainer;
 
+    public TransferMarketController() throws IOException {
+    }
+
     public void setUserData(String username, String userTeam) {
         this.username = username;
         this.userTeam = userTeam;
@@ -59,7 +62,7 @@ public class TransferMarketController extends BuySell {
     }
 
     @FXML
-    public void initialize() {
+    public void initialize() throws IOException {
         System.out.println("TransferMarketController.initialize called - playerContainer: " + playerContainer);
         leagueComboBox.getItems().addAll("Premier League", "La Liga", "Bundesliga", "Serie A", "Ligue 1");
         positionComboBox.getItems().addAll("GK", "Defender", "Midfielder", "Forward");
@@ -169,7 +172,7 @@ public class TransferMarketController extends BuySell {
         PlayerCardController controller = loader.getController();
         if (userTeam != null && !userTeam.trim().isEmpty()) {
             controller.setUserTeam(userTeam);
-            controller.loadPlayersForTeam(userTeam);
+            controller.loadPlayersForTeam(userTeam,username);
             controller.setTeamLogo(userTeam);
         } else {
             System.out.println("Error: userTeam is null or empty, cannot load team players or logo");
@@ -194,7 +197,7 @@ public class TransferMarketController extends BuySell {
     }
 
     @Override
-    public boolean buyPlayer(Player player) {
+    public boolean buyPlayer(Player player) throws IOException {
         boolean success = super.buyPlayer(player);
         if (success) {
             updateBalanceLabel();
@@ -204,12 +207,12 @@ public class TransferMarketController extends BuySell {
     }
 
     @FXML
-    public void updateBalanceLabel() {
+    public void updateBalanceLabel() throws IOException {
         balanceLabel.setText(String.format("$%.2f", getAccountBalance()));
     }
 
     @Override
-    public boolean sellPlayer(Player player) {
+    public boolean sellPlayer(Player player) throws IOException {
         boolean success = super.sellPlayer(player);
         if (success) {
             updateBalanceLabel();

@@ -36,7 +36,10 @@ public class TransferListController extends BuySell {
     @FXML
     private VBox playerothertfList;
 
-    public void setUserData(String username, String userTeam) {
+    public TransferListController() throws IOException {
+    }
+
+    public void setUserData(String username, String userTeam) throws IOException {
         this.username = username;
         this.userTeam = userTeam;
         System.out.println("TransferListController.setUserData called - username: " + username + ", userTeam: " + userTeam);
@@ -44,9 +47,11 @@ public class TransferListController extends BuySell {
         loadOwnedSellrequestedPlayers();
         loadOthersSellrequestedPlayers();
         setBalanceLabel();
+        updateBalanceLabel();
     }
 
-    public void loadOwnedSellrequestedPlayers(){
+    public void loadOwnedSellrequestedPlayers() throws IOException {
+        updateBalanceLabel();
         if (userTeam == null || userTeam.trim().isEmpty()) {
             System.out.println("Error: userTeam is null or empty in loadOwnedSellRequestedPlayers");
             return;
@@ -120,13 +125,18 @@ public class TransferListController extends BuySell {
 
     }
 
-    private void setBalanceLabel() {
+    private void setBalanceLabel() throws IOException {
         if (balanceLabel == null) {
             System.out.println("Error: balanceLabel is null");
             return;
         }
         double balance = getAccountBalance();
         balanceLabel.setText(String.format("$%.2f", balance));
+    }
+
+    @FXML
+    public void updateBalanceLabel() throws IOException {
+        balanceLabel.setText(String.format("$%.2f", getAccountBalance()));
     }
 
     @FXML
@@ -140,10 +150,11 @@ public class TransferListController extends BuySell {
         othersscrollPane.getScene().setRoot(root);
     }
 
-    public void RefreshScene(ActionEvent actionEvent) {
+    public void RefreshScene(ActionEvent actionEvent) throws IOException {
         System.out.println("TransferListController.RefreshScene called - username: " + username + ", userTeam: " + userTeam);
         loadOwnedSellrequestedPlayers();
         loadOthersSellrequestedPlayers();
         setBalanceLabel();
+        updateBalanceLabel();
     }
 }

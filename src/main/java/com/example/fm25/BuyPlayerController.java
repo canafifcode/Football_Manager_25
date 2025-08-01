@@ -23,12 +23,15 @@ public class BuyPlayerController extends BuySell{
     @FXML
     public ScrollPane scrollPane;
 
+    public BuyPlayerController() throws IOException {
+    }
+
     public void setUserTeam(String userTeam) {
         this.userTeam = userTeam;
         System.out.println("setUserTeam called - userTeam: " + userTeam);
     }
 
-    public void setUserData(String username, String userTeam) {
+    public void setUserData(String username, String userTeam) throws IOException {
         this.username = username;
         this.userTeam = userTeam;
         System.out.println("BuyPlayerController.setUserData called - username: " + username + ", userTeam: " + userTeam);
@@ -41,7 +44,7 @@ public class BuyPlayerController extends BuySell{
         System.out.println("BuyPlayerController initialized");
     }
 
-    private void setBalanceLabel() {
+    private void setBalanceLabel() throws IOException {
         if (balanceLabel == null) {
             System.out.println("Error: balanceLabel is null");
             return;

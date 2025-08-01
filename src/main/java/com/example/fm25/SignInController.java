@@ -39,7 +39,9 @@ public class SignInController {
         }
 
         String userTeam = null;
+        String userLeague=null;
         boolean matchFound = false;
+        Double balance=0.0;
 
         try (BufferedReader reader = new BufferedReader(new FileReader("users.txt"))) {
             String line;
@@ -48,11 +50,16 @@ public class SignInController {
                 if (parts.length >= 4) {
                     String fileUsername = parts[0];
                     String filePassword = parts[1];
+                    String League=parts[2];
                     String team = parts[3];
+                    double accountBalance=Double.parseDouble(parts[4]);
 
                     if (fileUsername.equals(username) && filePassword.equals(password)) {
                         matchFound = true;
                         userTeam = team;
+                        userLeague=League;
+                        balance=accountBalance;
+
                         break;
                     }
                 }
@@ -65,14 +72,18 @@ public class SignInController {
         if (matchFound) {
             System.out.println("Sign in successful!");
             logSignIn(username);
-            BuySell.createOrResetOwnedPlayersFile(username, userTeam);
+            //BuySell.createOrResetOwnedPlayersFile(username, userTeam);
+            BuySell.setUserTeamStatic(userTeam);
+            BuySell.setUserNameStatic(username);
+            BuySell.setUserLeagueStatic(userLeague);
+            NetworkContext.setSession(username, userTeam);
 
             //setUserData(username, userTeam);
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("players.fxml"));
                 root = loader.load();
                 PlayerCardController controller = loader.getController();
-                controller.loadPlayersForTeam(userTeam);
+                controller.loadPlayersForTeam(userTeam,username);
                 controller.setTeamLogo(userTeam);
                 controller.setUserName(username);
                 controller.setUserTeam(userTeam);

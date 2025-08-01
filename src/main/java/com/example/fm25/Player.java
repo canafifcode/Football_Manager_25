@@ -57,9 +57,10 @@ public class Player {
         return name + " (" + position + ")";
     }
 
-    public List<Player> loadPlayersForTeam(String teamName) {
+    public List<Player> loadPlayersForTeam(String teamName,String userName) {
         List<Player> players = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader("players.txt"))) {
+        String fileName="owned_players_"+teamName+"_"+userName+".txt";
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             int lineNumber = 0;
             while ((line = reader.readLine()) != null) {
@@ -80,31 +81,29 @@ public class Player {
                     Map<String, Integer> stats = new HashMap<>();
                     List<String> validStats = position.equalsIgnoreCase("GK") ? GK_STATS : NON_GK_STATS;
 
-                    if (team.equalsIgnoreCase(teamName)) {
-                        String statString = parts[5].trim();
-                        for (int i = 6; i < parts.length; i++) {
-                            statString += ";" + parts[i].trim();
-                        }
-                        String[] statPairs = statString.split(";");
-                        for (String pair : statPairs) {
-                            String[] statParts = pair.split(":");
-                            if (statParts.length == 2) {
-                                try {
-                                    String statKey = statParts[0].trim();
-                                    int statValue = Integer.parseInt(statParts[1].trim());
-                                    if (validStats.contains(statKey)) {
-                                        stats.put(statKey, statValue);
-                                    }
-                                } catch (NumberFormatException e) {
-                                    System.out.println("Invalid stat value at line " + lineNumber + " for player: " + playerName + ", stat: " + pair);
+                    String statString = parts[5].trim();
+                    for (int i = 6; i < parts.length; i++) {
+                        statString += ";" + parts[i].trim();
+                    }
+                    String[] statPairs = statString.split(";");
+                    for (String pair : statPairs) {
+                        String[] statParts = pair.split(":");
+                        if (statParts.length == 2) {
+                            try {
+                                String statKey = statParts[0].trim();
+                                int statValue = Integer.parseInt(statParts[1].trim());
+                                if (validStats.contains(statKey)) {
+                                    stats.put(statKey, statValue);
                                 }
+                            } catch (NumberFormatException e) {
+                                System.out.println("Invalid stat value at line " + lineNumber + " for player: " + playerName + ", stat: " + pair);
                             }
                         }
-                        if (stats.isEmpty()) {
-                            System.out.println("No valid stats loaded at line " + lineNumber + " for player: " + playerName);
-                        }
-                        players.add(new Player(playerName, position, league, team, stats, overall));
                     }
+                    if (stats.isEmpty()) {
+                        System.out.println("No valid stats loaded at line " + lineNumber + " for player: " + playerName);
+                    }
+                    players.add(new Player(playerName, position, league, team, stats, overall));
                 }
             }
         } catch (IOException e) {

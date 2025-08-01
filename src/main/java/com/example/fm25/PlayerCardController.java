@@ -41,6 +41,9 @@ public class PlayerCardController extends BuySell {
 
     private String userTeam; // Added to store userTeam
 
+    public PlayerCardController() throws IOException {
+    }
+
     public void setTeamLogo(String teamName) {
         if (teamName == null || teamName.trim().isEmpty()) {
             System.out.println("Error: teamName is null or empty in setTeamLogo");
@@ -69,13 +72,13 @@ public class PlayerCardController extends BuySell {
         System.out.println("setUserTeam called - userTeam: " + userTeam);
     }
 
-    public void loadPlayersForTeam(String teamName) {
+    public void loadPlayersForTeam(String teamName,String userName) {
         if (teamName == null || teamName.trim().isEmpty()) {
             System.out.println("Error: teamName is null or empty in loadPlayersForTeam");
             return;
         }
         Player playerLoader = new Player("", "", "", "", null, 0);
-        List<Player> players = playerLoader.loadPlayersForTeam(teamName);
+        List<Player> players = playerLoader.loadPlayersForTeam(teamName,userName);
 
         if (playerContainer == null) {
             System.out.println("Error: playerContainer is null");

@@ -32,12 +32,15 @@ public class SellPlayerController extends BuySell {
     @FXML
     private ImageView teamLogoView;
 
+    public SellPlayerController() throws IOException {
+    }
+
     public void setUserTeam(String userTeam) {
         this.userTeam = userTeam;
         System.out.println("setUserTeam called - userTeam: " + userTeam);
     }
 
-    public void setUserData(String username, String userTeam) {
+    public void setUserData(String username, String userTeam) throws IOException {
         this.username = username;
         this.userTeam = userTeam;
         System.out.println("SellPlayerController.setUserData called - username: " + username + ", userTeam: " + userTeam);
@@ -52,7 +55,7 @@ public class SellPlayerController extends BuySell {
             return;
         }
         Player playerLoader = new Player("", "", "", "", null, 0);
-        List<Player> players = playerLoader.loadPlayersForTeam(userTeam);
+        List<Player> players = playerLoader.loadPlayersForTeam(userTeam,username);
 
         if (playerList == null) {
             System.out.println("Error: playerList VBox is null");
@@ -82,7 +85,7 @@ public class SellPlayerController extends BuySell {
         }
     }
 
-    private void setBalanceLabel() {
+    private void setBalanceLabel() throws IOException {
         if (balanceLabel == null) {
             System.out.println("Error: balanceLabel is null");
             return;

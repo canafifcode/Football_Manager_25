@@ -1,4 +1,2 @@
-Afif,123,La Liga,Real Madrid
-Areed,123,La Liga,Barcelona
-Helo,dsa,Saudi Pro League,Al Nassr
-pinu,123,Premier League,Liverpool
+Afif,123,La Liga,Real Madrid,87550.0
+Areed,123,La Liga,Barcelona,112450.0

@@ -5,6 +5,7 @@ public class User {
     private String password;
     private String league;
     private String team;
+    private double balance=100000.0;
 
     public User(String username, String password, String league, String team){
         this.league=league;
@@ -29,8 +30,10 @@ public class User {
         return team;
     }
 
+    public Double getBalance(){ return balance; }
+
     @Override
     public String toString(){
-        return username + "," + password + "," + league + "," + team;
+        return username + "," + password + "," + league + "," + team+","+balance;
     }
 }

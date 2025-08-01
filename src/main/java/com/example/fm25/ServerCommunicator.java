@@ -39,4 +39,19 @@ public class ServerCommunicator {
             e.printStackTrace();
         }
     }
+
+    public static boolean sendBuyRequest(String managerHost, int managerPort, String buyMessage) {
+        try (Socket managerSocket = new Socket(managerHost, managerPort);
+             PrintWriter managerWriter = new PrintWriter(managerSocket.getOutputStream(), true);
+             BufferedReader managerReader = new BufferedReader(new InputStreamReader(managerSocket.getInputStream()))) {
+
+            managerWriter.println(buyMessage);
+            String response = managerReader.readLine();
+            return "SUCCESS".equals(response);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
