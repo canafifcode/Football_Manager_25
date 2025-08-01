@@ -1,0 +1,1 @@
+La Liga,Real Madrid,Vinicius,Forward,86,Pace:94;Passing:78;Shooting:85;Dribbling:95;Defending:60;Physical:75

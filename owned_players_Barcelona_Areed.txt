@@ -1,0 +1,14 @@
+La Liga,Barcelona,Ter Stegen,GK,91,Reflexes:90;Handling:92;Positioning:88;Diving:89;Kicking:85
+La Liga,Barcelona,Pedri,Midfielder,82,Pace:78;Passing:90;Shooting:72;Dribbling:88;Defending:70;Physical:75
+La Liga,Barcelona,Gavi,Midfielder,82,Pace:80;Passing:85;Shooting:70;Dribbling:85;Defending:78;Physical:80
+La Liga,Barcelona,Lamine Yamal,Forward,86,Pace:90;Passing:80;Shooting:82;Dribbling:92;Defending:60;Physical:70
+La Liga,Barcelona,Raphinha,Forward,85,Pace:88;Passing:78;Shooting:85;Dribbling:87;Defending:62;Physical:75
+La Liga,Barcelona,De-Jong,Midfielder,82,Pace:75;Passing:90;Shooting:70;Dribbling:85;Defending:78;Physical:80
+La Liga,Barcelona,Araujo,Defender,78,Pace:78;Passing:72;Shooting:60;Dribbling:65;Defending:90;Physical:88
+La Liga,Barcelona,Kounde,Defender,78,Pace:80;Passing:75;Shooting:62;Dribbling:70;Defending:88;Physical:82
+La Liga,Barcelona,Ferran Torres,Forward,78,Pace:85;Passing:78;Shooting:82;Dribbling:80;Defending:60;Physical:75
+La Liga,Barcelona,Joao Felix,Forward,79,Pace:85;Passing:80;Shooting:80;Dribbling:88;Defending:60;Physical:72
+La Liga,Barcelona,Christensen,Defender,75,Pace:70;Passing:75;Shooting:60;Dribbling:65;Defending:85;Physical:80
+La Liga,Barcelona,Cancelo,Defender,81,Pace:82;Passing:80;Shooting:65;Dribbling:78;Defending:82;Physical:75
+La Liga,Barcelona,Fermin Lopez,Midfielder,77,Pace:78;Passing:82;Shooting:75;Dribbling:80;Defending:70;Physical:75
+La Liga,Barcelona,Pena,GK,82,Reflexes:85;Handling:82;Positioning:80;Diving:84;Kicking:80
