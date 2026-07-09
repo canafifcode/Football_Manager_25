@@ -30,15 +30,14 @@ public class Server {
     }
 
     private void serve() {
-        try {
-            int count = 0;
-            while (true) {
+        int count = 0;
+        while (true) {
+            try {
                 Socket clientSocket = serverSocket.accept();
                 count++;
                 System.out.println("Client " + count + " connected successfully");
                 NetWorkUtil netUtil = new NetWorkUtil(clientSocket);
                 Object obj = netUtil.read();
-                //Object obj = netUtil.read();
                 if (obj instanceof info) {
                     info receivedInfo = (info) obj;
                     // Create a new info object on the server that includes the connection's NetWorkUtil
@@ -47,15 +46,20 @@ public class Server {
                         // Store the server-side info object in the map
                         clientMap.put(clientInfoForServer.getUsername(), clientInfoForServer);
                     }
-                    ClientHandler clientHandler = new ClientHandler(netUtil, clientMap, transferPlayerList, buySell);
+                    // Send the current transfer list right away so late joiners see existing listings
+                    synchronized (transferPlayerList) {
+                        netUtil.write(new ArrayList<>(transferPlayerList));
+                    }
+                    ClientHandler clientHandler = new ClientHandler(netUtil, clientInfoForServer, clientMap, transferPlayerList, buySell);
                     new Thread(clientHandler).start();
                 } else {
                     System.out.println("Invalid client info received");
                     netUtil.closeNetwork();
                 }
+            } catch (Exception e) {
+                // A single bad connection must not kill the accept loop
+                System.out.println("Error handling incoming connection: " + e.getMessage());
             }
-        } catch (Exception e) {
-            System.out.println("Server error: " + e.getMessage());
         }
     }
 

@@ -134,7 +134,8 @@ public class PlayerCardItemController extends BuySell {
             showError("Cannot sell player: Invalid data");
             return;
         }
-        String sellMessage = String.format("Request to sell %s from %s by %s", player.getName(), userTeam, username);
+        // '|'-delimited protocol so multi-word player names survive parsing on the server
+        String sellMessage = String.join("|", "SELL", player.getName(), userTeam, username);
         System.out.println("Sending sell message: " + sellMessage);
         sellPlayerButton.setDisable(true);
         new Thread(() -> {
@@ -160,7 +161,7 @@ public class PlayerCardItemController extends BuySell {
             showError("Cannot buy player: Invalid data");
             return;
         }
-        String buyMessage = String.format("Request to buy %s from %s by %s", player.getName(), player.getTeam(), username);
+        String buyMessage = String.join("|", "BUY", player.getName(), player.getTeam(), username);
         System.out.println("Sending buy message: " + buyMessage);
         buyPlayerButton.setDisable(true);
         new Thread(() -> {

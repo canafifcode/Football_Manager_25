@@ -37,7 +37,9 @@ public class NetWorkUtil {
         }
     }
 
-    public void write(Object obj) throws IOException {
+    // synchronized: broadcasts can be sent from several server threads at once,
+    // and interleaved writes would corrupt the object stream.
+    public synchronized void write(Object obj) throws IOException {
         try {
             System.out.println("Writing object: " + obj + " to socket: " + socket);
             oos.writeObject(obj);

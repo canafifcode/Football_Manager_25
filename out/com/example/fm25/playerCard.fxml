@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane opacity="0.95" prefHeight="139.0" prefWidth="953.0" style="-fx-background-color: #5E936C; -fx-border-color: white;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fm25.controller.PlayerCardItemController">
+    <children>
+        <Label fx:id="nameLabel" layoutX="10.0" layoutY="14.0" prefHeight="25.0" prefWidth="200.0" text="Name" textFill="WHITE">
+            <font>
+                <Font name="Arial Black" size="14.0" />
+            </font>
+        </Label>
+        <Label fx:id="positionLabel" layoutX="10.0" layoutY="48.0" prefHeight="25.0" prefWidth="200.0" text="Position" textFill="WHITE">
+            <font>
+                <Font name="Arial Black" size="14.0" />
+            </font>
+        </Label>
+        <Label fx:id="overallLabel" layoutX="10.0" layoutY="78.0" prefHeight="25.0" prefWidth="200.0" text="Overall" textFill="WHITE">
+            <font>
+                <Font name="Arial Black" size="14.0" />
+            </font>
+        </Label>
+        <Label fx:id="statsLabel" layoutX="210.0" layoutY="37.0" prefHeight="100.0" prefWidth="579.0" text="Stats" textFill="WHITE" wrapText="true">
+            <font>
+                <Font name="Arial Black" size="14.0" />
+            </font>
+        </Label>
+        <ImageView fx:id="playerView" fitHeight="132.0" fitWidth="127.0" layoutX="807.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
+    </children>
+</AnchorPane>

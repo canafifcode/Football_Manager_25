@@ -1,6 +1,5 @@
 package com.example.fm25.Loader;
 
-import com.example.fm25.NetworkContext;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
@@ -98,64 +97,16 @@ public class BuySell {
     }
 
     public boolean sellPlayer(PlayerLoader player) {
+        // Sell requests now travel over the network (BuyRequestClient -> Server);
+        // this only updates the local in-memory state and balance.
         if (availablePlayers.containsKey(player.getName())) {
-            String fileInsert = "sell_Req_of_" + NetworkContext.getUsername() + ".txt";
-            String fileInsertTwo = "sellablePlayers.txt";
-            String filetaken = "owned_players_" + NetworkContext.getUserTeam() + "_" + NetworkContext.getUsername()  + ".txt";
-
-            // Ensure files exist
-            ensureFileExists(fileInsert);
-            ensureFileExists(fileInsertTwo);
-
-            try (
-                    BufferedReader reader = new BufferedReader(new FileReader(filetaken));
-                    FileWriter writer = new FileWriter(fileInsert, true);
-                    FileWriter writerTwo = new FileWriter(fileInsertTwo, true)
-            ) {
-                String line;
-                boolean playerFound = false;
-                while ((line = reader.readLine()) != null) {
-                    String[] parts = line.split(",");
-                    if (parts.length >= 6 && parts[2].trim().equals(player.getName())) {
-                        writer.write(line + System.lineSeparator());
-                        writerTwo.write(line + System.lineSeparator());
-                        playerFound = true;
-                    }
-                }
-
-                if (playerFound) {
-                    System.out.println(fileInsert + " is ready (updated with sold player).");
-                    System.out.println(fileInsertTwo + " is ready (updated with sold player).");
-                } else {
-                    System.out.println("Player " + player.getName() + " not found in owned players file");
-                }
-
-            } catch (IOException e) {
-                System.out.println("Error creating/updating " + fileInsert + "/" + fileInsertTwo + ": " + e.getMessage());
-                return false;
-            }
-
-            // Process the sell
             availablePlayers.remove(player.getName());
-            updatePlayersFile(player, player.getTeam());
             accountBalance += calculatePrice(player.getOverall()) * 0.8; // 80% refund
             System.out.println(player.getName() + " sold! New balance: $" + accountBalance);
             return true;
         } else {
             System.out.println("Cannot sell " + player.getName() + ": Not in available players.");
             return false;
-        }
-    }
-
-    private void ensureFileExists(String fileName) {
-        File file = new File(fileName);
-        if (!file.exists()) {
-            try {
-                file.createNewFile();
-                System.out.println("Created file: " + fileName);
-            } catch (IOException e) {
-                System.out.println("Error creating file " + fileName + ": " + e.getMessage());
-            }
         }
     }
 
